@@ -3,8 +3,6 @@ import { glob } from 'glob';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 import SortCss from 'postcss-sort-media-queries';
-import posthtml from 'posthtml';
-import include from 'posthtml-include';
 
 export default defineConfig(({ command }) => {
   return {
@@ -40,21 +38,11 @@ export default defineConfig(({ command }) => {
       emptyOutDir: true,
     },
     plugins: [
-      // це залишаємо, він працює зі змінними
       injectHTML(),
       FullReload(['./src/**/**.html']),
       SortCss({
         sort: 'mobile-first',
       }),
-      // Ось новий плагін для partials
-      {
-        name: 'html-include',
-        transformIndexHtml(html) {
-          return posthtml([include({ root: './src' })])
-            .process(html)
-            .then(result => result.html);
-        },
-      },
     ],
   };
 });
