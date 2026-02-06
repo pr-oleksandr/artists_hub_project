@@ -1,4 +1,4 @@
-/* /* Header wrapper */
+/* Header wrapper */
 .header-wrapper {
   min-height: 72px;
   width: 100%;
@@ -19,32 +19,29 @@
   justify-content: space-between;
   height: 100%;
   align-items: center;
-}
-
-@media screen and (max-width: 768px) {
-  .header__container {
-    padding-left: 20px;
-    padding-right: 12px;
+     padding-left: 20px;
+   padding-right: 12px;
+  
+  
+  @media screen and (min-width: 768px) {
+     max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  
+  @media screen and (min-width: 1440px)  {
+     max-width: 1440px;
+    padding-left: 64px;
+    padding-right: 64px;
+  }
   }
 }
+
+
 
 /* logo */
 .header__logo-image {
   width: 119px;
   height: 51px;
-}
-
-.header__logo-white {
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-}
-
-.header__logo-purple {
-  display: none;
-  @media screen and (max-width: 768px) {
-    display: block;
-  }
 }
 
 /* burger*/
@@ -60,10 +57,10 @@
   height: 48px;
   width: 48px;
   padding: 0px;
-
-  display: none;
-  @media screen and (max-width: 768px) {
-    display: flex;
+  display: block;
+ 
+  @media screen and (min-width: 768px) {
+     display: none;
   }
 }
 
