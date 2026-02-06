@@ -1,5 +1,39 @@
-<header class="header">
-  <div class="container">
-    <p>Hello header!</p>
-  </div>
-</header>
+<div class="header-wrapper">
+  <header class="header">
+    <div class="container header__container">
+      <!-- logo -->
+      <div class="header__logo header__logo-white">
+        <a href="index.html" aria-label="Go to homepage"
+          ><img
+            src="../img/logo-white.svg"
+            alt="ArtistsHub logo"
+            class="header__logo-image"
+        /></a>
+      </div>
+      <div class="header__logo header__logo-purple">
+        <a href="index.html"
+          ><img
+            src="../img/logo-purple.svg"
+            alt="logo"
+            class="header__logo-image"
+        /></a>
+      </div>
+      <!-- Mobile menu toggle-->
+      <button
+        class="burger js-open-menu"
+        type="button"
+        aria-label="mobile-menu"
+      >
+        <img src="../img/burger-menu.svg" alt="menu" />
+      </button>
+      <!-- navigation -->
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li><a href="#artists" class="nav__link">Artists</a></li>
+          <li><a href="#about" class="nav__link">About us</a></li>
+          <li><a href="#reviews" class="nav__link">Reviews</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>
