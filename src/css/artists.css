@@ -1,73 +1,70 @@
 
 
-artists
+.artists
  {
-padding-top: 112px;
-padding-right: 64px;
-padding-bottom: 112px;
-padding-left: 64px;
+padding: 112px 64px;
 gap: 80px;
 color:rgba(6, 3, 7, 1) ;
-width: 1440px;
-height: 3095.77px;
+max-width: 1440px;
+margin: 0 auto;
 }
 
 
-title-artist-list
+.title-artist-list
 {
 border-radius: 16px;
 padding: 16px 8px;
 width: 50px;
-height: 24px;
+line-height: 24px;
 color: rgba(255, 255, 255, 1);
 font-family:"IBM Plex Sans",sans-serif ;
 
 
 }
 
-subtitle-artists-list
+.subtitle-artists-list
 {
 border-radius: 16px;
 padding: 16px 8px;
 width: 523px;
-height: 144px;
+line-height: 144px;
 gap: 24px;
 font-family:"Epilogue" ;
 color:rgba(255, 255, 255, 1) ;
      display: none;
 }
 
-artist-bio
+.artist-bio
 {
     width: 640px;
-    height: 54px;
+    line-height: 54px;
 
 font-family: "IBM Plex Sans";
 color:rgba(255, 255, 255, 1) ;
 
 }
-artist-img
+.artist-img
 {
 width: 640px;
-height: 393.44px;
-border-radius: medium;
+height: 393px;
+border-radius: 16px;
 }
-artists-name
+.artists-name
 {
 width: 640px;
 height: 42px;
 font-family:"Epilogue" ;
 }
-learn-more-btn
+.learn-more-btn
 {
    width: 93px;
    height: 27px;
    font-family:"IBM Plex Sans",sans-serif ; 
 color: rgba(255, 255, 255, 1);
 }
-artist-info
+.artist-info
 {
     width: 640px;
     height: 152px;
-    gap: 16px;
+   display: flex;
 }
