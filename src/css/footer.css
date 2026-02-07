@@ -45,6 +45,15 @@ footer {
         font-size: 16px;
         line-height: 150%;
         font-weight: 600;
+        transition: 200ms opacity ease-in-out;
+
+        &:hover {
+            opacity: 0.6;
+        }
+
+        &:active {
+            opacity: 0.2;
+        }
     }
 
     @media screen and (min-width:768px) {
@@ -66,6 +75,11 @@ footer {
 
     p {
         line-height: 150%;
+        text-align: center;
+
+        span {
+            display: inline-block;
+        }
     }
 
     @media screen and (min-width:768px) {
@@ -90,6 +104,15 @@ footer {
         width: 40px;
         /* background-color: red; */
         height: 40px;
+        transition: 200ms scale ease-in-out;
+
+        &:hover {
+            scale: 1.6;
+        }
+
+        &:active {
+            scale: 0.2;
+        }
     }
 
     @media screen and (min-width:768px) {
