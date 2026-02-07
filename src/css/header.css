@@ -11,6 +11,7 @@
   width: 100%;
   z-index: 1000;
   height: 72px;
+  background-color: #060307;
 }
 
 /* Header container */
@@ -83,6 +84,14 @@
     font-size: 26px;
     font-weight: 500;
     line-height: 150%;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &:active {
+      opacity: 0.2;
+    }
   }
 
   @media (min-width: 768px) {
