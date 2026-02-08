@@ -1,34 +1,40 @@
 <section class="about" id="about">
-  <div class="container">
+  <div class="about-wrapper">
+
+
+    <!-- IMAGE -->
     <div class="about-image">
       <picture>
         <!-- Desktop -->
-        <source srcset="img/about/TeamDesk@1x.jpg 1x, img/about/TeamDesk@2x.jpg 2x" media="(min-width:1025px)"
+        <source srcset="img/about/TeamDesk@1x.jpg 1x, img/about/TeamDesk@2x.jpg 2x" media="(min-width:1440px)"
           type="image/jpeg">
-
         <!-- Tablet -->
-        <source srcset="img/about/TeamTablet@1x.jpg 1x, img/about/TeamTablet@2x.jpg 2x"
-          media="(min-width:768px) and (max-width:1024px)" type="image/jpeg">
-
+        <source srcset="img/about/TeamTablet@1x.jpg 1x, img/about/TeamTablet@2x.jpg 2x" media="(min-width:768px)"
+          type="image/jpeg">
         <!-- Mobile -->
         <source srcset="img/about/TeamMobile@1x.jpg 1x, img/about/TeamMobile@2x.jpg 2x" media="(max-width:767px)"
           type="image/jpeg">
-
-        <!-- Фоллбек -->
-        <img src="img/about/TeamDesk@1x.jpg" alt="ArtistsHub Team" loading="lazy">
+        <!-- Fallback -->
+        <img class="about-img" src="img/about/TeamDesk@1x.jpg" alt="ArtistsHub Team" loading="lazy">
       </picture>
     </div>
 
-    <div class="about-image">
-      <img src="img/logo_icon_about.jpg" alt="ArtistsHub Team Icon" loading="lazy">
-    </div>
-    <h2>About ArtistsHub</h2>
 
-    <p>
-      At ArtistsHub, our mission is to connect music lovers with the artists
-      they adore. We strive to create a vibrant community where discovering
-      new music is as enjoyable as listening to it.
-    </p>
-  </div>
+    <!-- CONTENT (logo + text) -->
+    <div class="about-content">
+      <div class="about-icon">
+        <img src="img/logo_icon_about.svg" alt="ArtistsHub icon" loading="lazy">
+      </div>
+      <h2>About ArtistsHub</h2>
+      <p>At ArtistsHub, our mission is to connect music lovers with the artists they adore. We strive to create a
+        vibrant community where discovering new music is as enjoyable as listening to it.</p>
+    </div>
+
+
   </div>
 </section>
+
+
+</body>
+
+</html>
