@@ -18,7 +18,7 @@
     <script type="module" crossorigin src="/artists_hub_project/index.js"></script>
     <link rel="modulepreload" crossorigin href="/artists_hub_project/assets/vendor-CK1Rzdhu.js">
     <link rel="stylesheet" crossorigin href="/artists_hub_project/assets/vendor-DnveWo0P.css">
-    <link rel="stylesheet" crossorigin href="/artists_hub_project/assets/index-BY24jsiJ.css">
+    <link rel="stylesheet" crossorigin href="/artists_hub_project/assets/index-DQxYLsQR.css">
   </head>
   <body>
     <div class="header-wrapper">
@@ -33,15 +33,61 @@
             class="header__logo-image"
         /></a>
       </div>
+
+      <div class="header__logo header__logo-purple">
+        <a href="index.html" aria-label="Go to homepage"
+          ><img
+            src="/artists_hub_project/assets/logo-purple-DsSYTHu6.svg"
+            alt="ArtistsHub logo"
+            class="header__logo-image"
+        /></a>
+      </div>
       <!-- Mobile menu toggle-->
       <button
         class="burger js-open-menu"
         type="button"
         aria-label="mobile-menu"
       >
-        <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20fill='none'%20viewBox='0%200%2024%2024'%3e%3cpath%20fill='%23fff'%20d='M4%206h16v2H4zm4%205h12v2H8zm5%205h7v2h-7z'/%3e%3c/svg%3e" alt="menu" />
+        <span class="burger__icon-wrapper">
+          <img
+            src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20fill='none'%20viewBox='0%200%2024%2024'%3e%3cpath%20fill='%23fff'%20d='M4%206h16v2H4zm4%205h12v2H8zm5%205h7v2h-7z'/%3e%3c/svg%3e"
+            alt="Open menu"
+            class="burger__icon"
+          />
+        </span>
       </button>
-      <!-- navigation -->
+
+      <!-- mobile menu -->
+
+      <div class="mobile-menu js-menu">
+        <div class="mobile-menu__header">
+          <div class="mobile-menu__logo">
+            <a href="index.html" aria-label="Go to homepage"
+              ><img
+                src="/artists_hub_project/assets/logo-purple-DsSYTHu6.svg"
+                alt="ArtistsHub logo"
+                class="header__logo-image"
+            /></a>
+          </div>
+          <button
+            class="mobile-menu__close js-close-menu"
+            type="button"
+            aria-label="Close menu"
+          >
+            <span class="mobile-menu__icon-wrapper">
+              <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='12'%20height='12'%20fill='none'%20viewBox='0%200%2012%2012'%3e%3cpath%20fill='%23fff'%20d='M9.899%200%205.656%204.242%201.414%200%200%201.414l4.242%204.242L0%209.898l1.414%201.414L5.656%207.07l4.243%204.242%201.414-1.414-4.242-4.242%204.242-4.242z'/%3e%3c/svg%3e" alt="Close menu" />
+            </span>
+          </button>
+        </div>
+        <nav class="mobile-menu__nav" aria-label="Mobile navigation">
+          <ul class="mobile-menu__list">
+            <li><a href="#artists" class="mobile-menu__link">Artists</a></li>
+            <li><a href="#about" class="mobile-menu__link">About us</a></li>
+            <li><a href="#reviews" class="mobile-menu__link">Reviews</a></li>
+          </ul>
+        </nav>
+      </div>
+      <!-- navigation desktop-->
       <nav class="nav" aria-label="Main navigation">
         <ul class="nav__list">
           <li><a href="#artists" class="nav__link">Artists</a></li>
@@ -52,6 +98,7 @@
     </div>
   </header>
 </div>
+
 
     <main>
       <section class="hero">
