@@ -132,11 +132,6 @@ body {
     max-width: 246px;
   }
  
-  .hero__btn-icon {
-    width: 24px;
-    height: 24px;
-  }
- 
   .hero__gallery {
     width: 704px;
     min-height: 632px;
