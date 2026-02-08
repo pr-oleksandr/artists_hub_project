@@ -3,3 +3,4 @@ import './js/loader';
 import './js/artists';
 import './js/modal';
 import './js/feedback';
+import './js/leave-feedback';
