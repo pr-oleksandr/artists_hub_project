@@ -40,11 +40,14 @@
 }
 
 /* logo */
-.header__logo-image {
+.header__logo-link {
   width: 119px;
   height: 51px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
-
 .header__logo-white {
   display: none;
 
@@ -199,10 +202,15 @@
 }
 
 .mobile-menu__link {
+  width: 109px;
+  display: inline-flex;
+  justify-content: center;
+  align-items:center;
+  text-align: center;
+
   font-size: 26px;
   font-weight: 500;
   line-height: 150%;
-  display: block;
   transition: opacity 200ms ease-in-out;
 
   &:hover {
@@ -227,6 +235,12 @@
   gap: 32px;
 }
 .nav__link {
+  display: inline-flex;
+align-items: center;
+justify-content: center;
+  text-align: center;
+  
+height: 27px;
   transition: opacity 200ms ease-in-out;
 
   &:hover {
