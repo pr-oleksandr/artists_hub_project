@@ -1,0 +1,169 @@
+
+/*
+.artist-modal {
+  position: fixed;
+
+  background: rgba(0,0,0,0.7);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  width: 24px;
+  height: 24px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  border: none;
+  background-color: transparent;
+}
+
+.m-a-topic{
+  position: fixed;
+
+  background: rgba(0,0,0,0.7);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+}
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 24px;
+  height: 24px;
+}
+
+.m-a-name
+{
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 130%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #FFFFFF;
+flex-basis: 100%;
+  margin-bottom: 24px;
+   display: block;
+}
+
+
+
+.m-a-img
+{
+      width: 576px;
+  height: 354px;
+  flex-shrink: 0;
+  object-fit: cover;
+
+  border-radius: 12px;
+
+  display: block;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+
+/*
+.modal-content
+{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
+}
+*/
+
+
+.desc-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
+  gap: 16px 32px;
+ flex: 1;
+}
+
+
+
+.m-a-info {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0;
+
+  color: #ffffff;
+}
+/*
+.modal-content {
+  width:100%;
+  max-height: 90vh;
+
+  background: #111;
+  border-radius: 20px;
+  padding: 32px;
+
+  overflow-y: auto;
+}
+*/
+
+.desc-container .desc-box:nth-child(5),
+.genres-container {
+  grid-column: span 2;
+}
+
+
+@media (min-width: 768px) {
+  .artists-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+@media (max-width: 767px) {
+
+  .modal-content {
+    flex-direction: column;
+  }
+
+  .m-a-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .desc-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+}
+
+@media (max-width: 320px) {
+
+  .modal-content {
+    gap: 16px;
+  }
+
+  .m-a-name {
+    font-size: 24px;
+  }
+
+  .m-a-info {
+    font-size: 14px;
+  }
+
+}

@@ -8,9 +8,12 @@ color:rgba(6, 3, 7, 1) ;
 max-width: 1440px;
 margin: 0 auto;
 }
+
+
+
 .container
 {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -25,6 +28,8 @@ line-height: 24px;
 color: rgba(255, 255, 255, 1);
 font-family:"IBM Plex Sans",sans-serif ;
 }
+
+
 
 .subtitle-artists-list
 {
@@ -56,6 +61,9 @@ font-family:"IBM Plex Sans",sans-serif ;
   font-weight: 500;
   color: rgba(255,255,255,1);
 }
+
+
+
 .artist-item
 {
  transition: transform 0.3s ease, box-shadow 0.3s ease;   
@@ -66,10 +74,14 @@ font-family:"IBM Plex Sans",sans-serif ;
  overflow: visible;
 }
 
+
+
 .artist-item:hover
 {
       transform: scale(1.03);   
 }
+
+
 
 .artist-img
 {
@@ -88,11 +100,11 @@ object-position: center 30%;
   grid-template-columns: 1fr;
   gap: 24px;
 }
-@media (min-width: 1200px) {
-  .artists-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+
+
+
+
+
 .artist-bio
 {
 line-height: 1,5;
@@ -108,13 +120,10 @@ color:rgba(255, 255, 255, 1) ;
 font-family:"Epilogue" ;
 width: 100%;
 }
-.learn-more-btn
-{
-   width: 93px;
-   height: 27px;
-   font-family:"IBM Plex Sans",sans-serif ; 
-color: rgba(255, 255, 255, 1);
-}
+
+
+
+
 .artist-info
 {
     color:rgba(255, 255, 255, 1);
@@ -122,29 +131,23 @@ color: rgba(255, 255, 255, 1);
   flex-direction: column;
   gap: 8px;
   padding-bottom: 20px;
-    flex-direction: column;
    display: flex;
 }
 
+
+
 .learn-more-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-
-  white-space: nowrap;
-
-  padding: 4px 10px;
-
+   height: 27px;
+width: 125px;
   background: transparent;
-  border: none;
-
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 18px;
   font-weight: 500;
   color: rgba(255,255,255,1);
-  cursor: pointer;
 }
 
+
+/*
 .learn-more-btn::after {
   display: inline-block;
   content: "";
@@ -155,6 +158,8 @@ color: rgba(255, 255, 255, 1);
   background-position: center;
   background-size: contain;
 }
+*/
+
 
   .load-more-btn
    {
@@ -162,31 +167,40 @@ color: rgba(255, 255, 255, 1);
   align-items: center;
   justify-content: center;
   gap: 12px;
+  display: flex;
   margin: 0 auto;
-margin-top: 40px;
+  margin-top: 40px;
   padding: 10px 24px;
   border-radius: 12px;
-  display: flex;
   background: rgba(118, 65, 145, 1);
   border: none;
-
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 18px;
   font-weight: 500;
   color: white;
-transition: transform 0.2s ease;
-  cursor: pointer;
+  transition: transform 0.2s ease;
+  background-repeat: no-repeat;
+  background-position: center;
 }
+
+
+
 .load-more-btn:hover
 {
 transform: scale(1.05);
  background: rgba(98, 52, 122, 1);
 }
+
+
+
 .load-more-btn :active
 {
  transform: scale(0.97);
   background: rgba(85, 45, 105, 1);
 }
+
+
+/*
 .load-more-btn::after {
   content: "";
   width: 16px;
@@ -197,3 +211,4 @@ transform: scale(1.05);
   background-position: center;
   background-size: contain;
 }
+*/
