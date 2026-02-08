@@ -31,3 +31,7 @@ html {
 section {
   scroll-margin-top: 72px;
 }
+
+.no-scroll {
+  overflow: hidden;       
+}

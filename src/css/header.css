@@ -1,4 +1,4 @@
-/* Header wrapper */
+/* Header*/
 .header-wrapper {
   min-height: 72px;
   width: 100%;
@@ -10,39 +10,55 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  height: 72px;
+  height: 64px;
   background-color: #060307;
+
+  @media screen and (min-width: 768px) {
+    height: 72px;
+  }
 }
 
-/* Header container */
 .header__container {
   display: flex;
   justify-content: space-between;
   height: 100%;
   align-items: center;
-     padding-left: 20px;
-   padding-right: 12px;
-  
-  
+  padding-left: 20px;
+  padding-right: 12px;
+
   @media screen and (min-width: 768px) {
-     max-width: 768px;
+    max-width: 768px;
     padding-left: 32px;
     padding-right: 32px;
-  
-  @media screen and (min-width: 1440px)  {
-     max-width: 1440px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    max-width: 1440px;
     padding-left: 64px;
     padding-right: 64px;
   }
-  }
 }
-
-
 
 /* logo */
 .header__logo-image {
   width: 119px;
   height: 51px;
+}
+
+.header__logo-white {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.header__logo-purple {
+  display: flex;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 }
 
 /* burger*/
@@ -59,47 +75,164 @@
   width: 48px;
   padding: 0px;
   display: flex;
- 
+
   @media screen and (min-width: 768px) {
-     display: none;
+    display: none;
   }
 }
 
+.burger__icon-wrapper img {
+  width: 100%;
+  height: 100%;
+}
+
+.burger__icon-wrapper {
+  width: 24px; 
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 50%;
+}
+
+.burger {
+  &:hover .burger__icon-wrapper {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+  &:active .burger__icon-wrapper {
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+}
+
+/* mobile-menu */
+
+.mobile-menu__icon-wrapper {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  transition: background-color 0.2s ease-in-out;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.mobile-menu__close {
+  &:hover .mobile-menu__icon-wrapper {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+  &:active .mobile-menu__icon-wrapper {
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background-color: #060307;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 999;
+
+  transform: translateY(0);
+  transition:
+    opacity 0.3s ease,
+    transform 0.2s ease;
+}
+
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.mobile-menu.closing {
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.4s ease,
+    transform 0.2s ease;
+}
+
+.mobile-menu__header {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 12px;
+  margin: 0 auto;
+  max-width: 320px;
+  height: 64px;
+}
+
+.mobile-menu__close {
+  background: none;
+  border: none;
+  width: 48px;
+  height: 48px;
+  background-color: currentColor;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  display: flex;
+}
+
+.mobile-menu__nav {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding-top: 39px;
+  flex-direction: column;
+
+  @media screen and(min-width:768px) {
+    display: none;
+  }
+}
+.mobile-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.mobile-menu__link {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 150%;
+  display: block;
+  transition: opacity 200ms ease-in-out;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.2;
+  }
+}
 
 /* navigation */
 .nav {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     display: none;
   }
 }
 
 .nav__list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 32px;
-  text-align: center;
+}
+.nav__link {
+  transition: opacity 200ms ease-in-out;
 
-  li > a {
-    display: flex;
-    font-size: 26px;
-    font-weight: 500;
-    line-height: 150%;
-
-    &:hover {
-      opacity: 0.6;
-    }
-
-    &:active {
-      opacity: 0.2;
-    }
+  &:hover {
+    opacity: 0.6;
   }
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-
-    li > a {
-      font-size: 18px;
-      font-weight: 400;
-    }
+  &:active {
+    opacity: 0.2;
   }
 }
