@@ -18,7 +18,7 @@
     <script type="module" crossorigin src="/artists_hub_project/index.js"></script>
     <link rel="modulepreload" crossorigin href="/artists_hub_project/assets/vendor-CK1Rzdhu.js">
     <link rel="stylesheet" crossorigin href="/artists_hub_project/assets/vendor-DnveWo0P.css">
-    <link rel="stylesheet" crossorigin href="/artists_hub_project/assets/index-BQCPowyT.css">
+    <link rel="stylesheet" crossorigin href="/artists_hub_project/assets/index-CjolIBV9.css">
   </head>
   <body>
     <div class="header-wrapper">
@@ -143,39 +143,45 @@
   </div>
 </section>
       <section class="about" id="about">
-  <div class="container">
+  <div class="about-wrapper">
+
+
+    <!-- IMAGE -->
     <div class="about-image">
       <picture>
         <!-- Desktop -->
-        <source srcset="/artists_hub_project/assets/TeamDesk@1x-rGwohzmq.jpg 1x, /artists_hub_project/assets/TeamDesk@2x-YstdNgeL.jpg 2x" media="(min-width:1025px)"
+        <source srcset="/artists_hub_project/assets/TeamDesk@1x-rGwohzmq.jpg 1x, /artists_hub_project/assets/TeamDesk@2x-YstdNgeL.jpg 2x" media="(min-width:1440px)"
           type="image/jpeg">
-
         <!-- Tablet -->
-        <source srcset="/artists_hub_project/assets/TeamTablet@1x-DZpjU66x.jpg 1x, /artists_hub_project/assets/TeamTablet@2x-H5KUDGNw.jpg 2x"
-          media="(min-width:768px) and (max-width:1024px)" type="image/jpeg">
-
+        <source srcset="/artists_hub_project/assets/TeamTablet@1x-DZpjU66x.jpg 1x, /artists_hub_project/assets/TeamTablet@2x-H5KUDGNw.jpg 2x" media="(min-width:768px)"
+          type="image/jpeg">
         <!-- Mobile -->
         <source srcset="/artists_hub_project/assets/TeamMobile@1x-D9MZ9lEq.jpg 1x, /artists_hub_project/assets/TeamMobile@2x-D7gn9cjw.jpg 2x" media="(max-width:767px)"
           type="image/jpeg">
-
-        <!-- Фоллбек -->
-        <img src="/artists_hub_project/assets/TeamDesk@1x-rGwohzmq.jpg" alt="ArtistsHub Team" loading="lazy">
+        <!-- Fallback -->
+        <img class="about-img" src="/artists_hub_project/assets/TeamDesk@1x-rGwohzmq.jpg" alt="ArtistsHub Team" loading="lazy">
       </picture>
     </div>
 
-    <div class="about-image">
-      <img src="img/logo_icon_about.jpg" alt="ArtistsHub Team Icon" loading="lazy">
-    </div>
-    <h2>About ArtistsHub</h2>
 
-    <p>
-      At ArtistsHub, our mission is to connect music lovers with the artists
-      they adore. We strive to create a vibrant community where discovering
-      new music is as enjoyable as listening to it.
-    </p>
-  </div>
+    <!-- CONTENT (logo + text) -->
+    <div class="about-content">
+      <div class="about-icon">
+        <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='80'%20height='80'%20fill='none'%3e%3cpath%20fill='%23fff'%20d='M43.75%207.85c.962-.104%202.075.097%203%20.36%202.095.594%203.797%201.867%204.807%203.684a7.35%207.35%200%200%201%20.558%206.042c-.879%202.47-2.763%203.712-5.117%204.853l.026%207.202c1.683.478%203.32%201.019%204.847%201.844%203.51%201.896%205.912%205.094%206.919%208.732%201.064%203.815.46%207.87-1.683%2011.27-1.964%203.082-5.096%205.358-8.846%206.23-4.899%201.14-9.053-.095-13.263-2.427a336%20336%200%200%200-5.515%205.624c.812%201.784%201.08%203.654.542%205.55-.526%201.852-1.919%203.439-3.7%204.377-1.998%201.053-4.273%201.245-6.462.661-2.172-.58-3.998-1.833-5.06-3.718-1.045-1.852-1.134-4.023-.456-6%20.77-2.248%202.34-3.633%204.548-4.66%202.376-.867%204.34-.582%206.66.197%201.93-1.894%203.749-3.882%205.7-5.76-2.144-3.917-2.84-7.254-1.725-11.571-2.427-1.056-4.767-2.286-7.196-3.343-1.298%201.259-2.884%202.122-4.747%202.414-2.222.348-4.565-.217-6.39-1.432-1.81-1.221-3-3.082-3.293-5.146-.3-2.002.265-4.208%201.64-5.787%201.42-1.63%203.62-2.611%205.844-2.828%202.184-.199%204.364.422%206.055%201.724%202.163%201.688%202.788%203.786%203.05%206.287%202.302%201.315%204.94%202.33%207.338%203.504%203.121-3.438%205.401-4.522%209.95-5.829l.004-7.148c-.814-.303-1.627-.673-2.337-1.159-1.795-1.237-2.973-3.1-3.264-5.163-.27-2.052.352-4.12%201.727-5.742%201.502-1.756%203.51-2.555%205.84-2.843m10.03%2035.555c-.463-4.917-5.099-8.563-10.379-8.163-5.327.404-9.283%204.77-8.816%209.73.467%204.962%205.179%208.62%2010.5%208.155%205.274-.464%209.158-4.805%208.695-9.722M69.043%2031.464a3.7%203.7%200%200%201%20.668.017c.7.094%201.39.41%201.776.982.41.608.465%201.417.521%202.121.278%203.485.072%207.11.07%2010.607%200%202.856.34%206.729-.23%209.48-.179.864-.794%201.277-1.53%201.745-.281.031-.575.068-.858.053-.632-.034-1.231-.296-1.64-.746-.404-.445-.393-1.338-.428-1.896-.257-4.009-.04-8.145-.036-12.166.002-2.285-.335-6.658.18-8.697.185-.73.89-1.112%201.507-1.5M62.589%2037.063c.758.13%201.43.395%201.872%201.01.682.947.7%2010.228.359%2011.552-.187.724-.86%201.077-1.497%201.426-.73-.04-1.69-.101-2.177-.691-.726-.877-.666-10.74-.253-11.977.24-.719%201.033-1.023%201.696-1.32'/%3e%3c/svg%3e" alt="ArtistsHub icon" loading="lazy">
+      </div>
+      <h2>About ArtistsHub</h2>
+      <p>At ArtistsHub, our mission is to connect music lovers with the artists they adore. We strive to create a
+        vibrant community where discovering new music is as enjoyable as listening to it.</p>
+    </div>
+
+
   </div>
 </section>
+
+
+</body>
+
+</html>
       <section class="feedback" id="reviews">
   <div class="container">
     <p>Hello feedback!</p>
