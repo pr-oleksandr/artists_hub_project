@@ -1,41 +1,30 @@
-.artists
- {
-padding: 112px 64px;
-gap: 80px;
-color:rgba(6, 3, 7, 1) ;
-max-width: 1440px;
-margin: 0 auto;
-}
-.container
-{
-  max-width: 1200px;
+.artists {
+  padding: 112px 64px;
+  gap: 80px;
+  color: rgba(6, 3, 7, 1);
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 24px;
 }
 
-
-.title-artist-list
-{
-border-radius: 16px;
-padding: 16px 8px;
-width: 50px;
-line-height: 24px;
-color: rgba(255, 255, 255, 1);
-font-family:"IBM Plex Sans",sans-serif ;
+.title-artist-list {
+  border-radius: 16px;
+  padding: 16px 8px;
+  width: 50px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 1);
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
-.subtitle-artists-list
-{
-   font-family: "Epilogue", sans-serif;
-   font-weight: 700;
-   font-size: 60px;
-   line-height: 1.2;
-   letter-spacing: -0.01em;
-   color: rgba(255,255,255,1);
-   max-width: 523px; 
-   margin-bottom: 40px;
+.subtitle-artists-list {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 1);
+  max-width: 523px;
+  margin-bottom: 40px;
 }
-
 
 .genres {
   display: inline-flex;
@@ -46,92 +35,79 @@ font-family:"IBM Plex Sans",sans-serif ;
   margin-top: 12px;
 
   border-radius: 6px;
-  border: 1px solid rgba(255,255,255,0.2);
-  background-color: rgba(255,255,255,0);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0);
 
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 14px;
   font-weight: 500;
-  color: rgba(255,255,255,1);
+  color: rgba(255, 255, 255, 1);
 }
-.artist-item
-{
- transition: transform 0.3s ease, box-shadow 0.3s ease;   
- border-radius: 20px;
- background-color:rgba(6, 3, 7, 1);
- display: block;
- height: auto;
- overflow: visible;
-}
-
-.artist-item:hover
-{
-      transform: scale(1.03);   
+.artist-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 20px;
+  background-color: rgba(6, 3, 7, 1);
+  display: block;
+  height: auto;
+  overflow: visible;
 }
 
-.artist-img
-{
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
-    object-fit: cover;
-aspect-ratio: 640 / 393;    
-display: block;
-object-position: center 30%;
+.artist-item:hover {
+  transform: scale(1.03);
 }
 
-.artists-list
-{
-     display: grid;
+.artist-img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  aspect-ratio: 640 / 393;
+  display: block;
+  object-position: center 30%;
+}
+
+.artists-list {
+  display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
 }
-@media (min-width: 1200px) {
+@media (min-width: 14400px) {
   .artists-list {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-.artist-bio
-{
-line-height: 1,5;
-font-family: "IBM Plex Sans";
-color:rgba(255, 255, 255, 1) ;
-
+.artist-bio {
+  line-height: 1, 5;
+  font-family: 'IBM Plex Sans';
+  color: rgba(255, 255, 255, 1);
 }
 
-
-
-.artists-name
-{
-font-family:"Epilogue" ;
-width: 100%;
+.artists-name {
+  font-family: 'Epilogue';
+  width: 100%;
 }
 
-.artist-info
-{
-    color:rgba(255, 255, 255, 1);
-    padding: 16px;
+.artist-info {
+  color: rgba(255, 255, 255, 1);
+  padding: 16px;
   flex-direction: column;
   gap: 8px;
   padding-bottom: 20px;
-    flex-direction: column;
-   display: flex;
+  flex-direction: column;
+  display: flex;
 }
 
 .learn-more-btn {
   width: 125px;
   height: 27px;
   background: transparent;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 18px;
   font-weight: 500;
-  color: rgba(255,255,255,1);
+  color: rgba(255, 255, 255, 1);
 }
 
-
-
-  .load-more-btn
-   {
+.load-more-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -143,30 +119,23 @@ width: 100%;
   display: flex;
   background: rgba(118, 65, 145, 1);
   border: none;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 18px;
   font-weight: 500;
   color: white;
   transition: transform 0.2s ease;
   cursor: pointer;
 }
-.load-more-btn:hover
-{
-transform: scale(1.05);
- background: rgba(98, 52, 122, 1);
+.load-more-btn:hover {
+  transform: scale(1.05);
+  background: rgba(98, 52, 122, 1);
 }
-.load-more-btn :active
-{
- transform: scale(0.97);
+.load-more-btn :active {
+  transform: scale(0.97);
   background: rgba(85, 45, 105, 1);
 }
 .load-more-btn::after {
-  content: "";
+  content: '';
   width: 16px;
   height: 16px;
-
-  background-image: url(../img/down-arrow-alt.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
 }
