@@ -61,7 +61,7 @@ import{a as c,i as m}from"./assets/vendor-CK1Rzdhu.js";(function(){const t=docum
                 <ul class="genres">${n.map(h=>`<li>${h}</li>`).join("")}</ul> 
                 <h3 >${e}</h3>
                 <p >${T(r,20)}</p> 
-                <button type="button" class="learn-more-btn" data-id="${i}">Learn more<img src="./img/caret-right.svg"
+                <button type="button" class="learn-more-btn" data-id="${i}">Learn more<img src="/img/caret-right.svg"
         alt="button load more"></button>
             </div>
         </li>
