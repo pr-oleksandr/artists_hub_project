@@ -1,141 +1,194 @@
+.is-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 .artists {
-  padding: 112px 64px;
-  gap: 80px;
-  color: rgba(6, 3, 7, 1);
-  max-width: 1440px;
-  margin: 0 auto;
+  padding: 64px 0;
+
+  @media screen and (min-width:768px) {}
+
+  @media screen and (min-width:1440px) {
+    padding: 112px 0;
+  }
 }
 
 .title-artist-list {
-  border-radius: 16px;
-  padding: 16px 8px;
-  width: 50px;
-  line-height: 24px;
-  color: rgba(255, 255, 255, 1);
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  margin-bottom: 16px;
 }
 
 .subtitle-artists-list {
-  font-family: 'Epilogue', sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-weight: 700;
-  font-size: 60px;
-  line-height: 1.2;
+  font-size: 44px;
+  line-height: 120%;
   letter-spacing: -0.01em;
-  color: rgba(255, 255, 255, 1);
-  max-width: 523px;
-  margin-bottom: 40px;
-}
+  max-width: 288px;
+  margin-bottom: 32px;
 
-.genres {
-  display: inline-flex;
-  gap: 8px;
-  flex-wrap: wrap;
+  @media screen and (min-width:768px) {
+    max-width: 100%;
+  }
 
-  padding: 4px 10px;
-  margin-top: 12px;
-
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background-color: rgba(255, 255, 255, 0);
-
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 1);
-}
-.artist-item {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 20px;
-  background-color: rgba(6, 3, 7, 1);
-  display: block;
-  height: auto;
-  overflow: visible;
-}
-
-.artist-item:hover {
-  transform: scale(1.03);
-}
-
-.artist-img {
-  width: 100%;
-  height: auto;
-  border-radius: 20px;
-  object-fit: cover;
-  aspect-ratio: 640 / 393;
-  display: block;
-  object-position: center 30%;
+  @media screen and (min-width:1440px) {
+    font-size: 60px;
+    max-width: 523px;
+  }
 }
 
 .artists-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
-}
-@media (min-width: 14400px) {
-  .artists-list {
+  gap: 64px;
+
+  @media screen and (min-width:768px) {
+    gap: 32px;
+  }
+
+  @media screen and (min-width:1440px) {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-.artist-bio {
-  line-height: 1, 5;
-  font-family: 'IBM Plex Sans';
-  color: rgba(255, 255, 255, 1);
+
+
+
+.artist-item {
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
 }
 
-.artists-name {
-  font-family: 'Epilogue';
+.artist-img {
   width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  object-position: top;
+  aspect-ratio: 640 / 393;
 }
+
 
 .artist-info {
-  color: rgba(255, 255, 255, 1);
-  padding: 16px;
-  flex-direction: column;
-  gap: 8px;
-  padding-bottom: 20px;
-  flex-direction: column;
-  display: flex;
+  padding-top: 24px;
+
+  ul {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+
+    li {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      padding-block: 4px;
+      padding-inline: 10px;
+
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 150%;
+    }
+  }
+
+  h3 {
+    font-family: "Epilogue", sans-serif;
+    font-size: 32px;
+    line-height: 130%;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    margin-bottom: 24px;
+  }
 }
+
+
+
+
 
 .learn-more-btn {
-  width: 125px;
-  height: 27px;
-  background: transparent;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 1);
-}
-
-.load-more-btn {
-  display: inline-flex;
+  padding: 0;
+  display: flex;
+  gap: 8px;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  background: transparent;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  color: #fff;
+
+  transition: transform 0.3s ease, opacity 0.3s ease;
+
+  &:hover {
+    /* transform: scale(1.05); */
+    opacity: 0.6;
+  }
+
+  &:active {
+    /* transform: scale(0.95); */
+  }
+}
+
+
+
+
+
+.load-more-btn {
+  border-radius: 12px;
+  padding-block: 10px;
+  padding-inline: 24px;
+  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+  background: #764191;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
   gap: 12px;
   margin: 0 auto;
-  margin-top: 40px;
-  padding: 10px 24px;
-  border-radius: 12px;
-  display: flex;
-  background: rgba(118, 65, 145, 1);
+  margin-top: 32px;
   border: none;
-  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 18px;
   font-weight: 500;
-  color: white;
-  transition: transform 0.2s ease;
+  color: #fff;
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-}
-.load-more-btn:hover {
-  transform: scale(1.05);
-  background: rgba(98, 52, 122, 1);
-}
-.load-more-btn :active {
-  transform: scale(0.97);
-  background: rgba(85, 45, 105, 1);
-}
-.load-more-btn::after {
-  content: '';
-  width: 16px;
-  height: 16px;
+
+
+  @media screen and (min-width:768px) {
+    max-width: 340px;
+    margin-top: 64px;
+  }
+
+  @media screen and (min-width:1440px) {
+    width: auto;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+    opacity: 0.6;
+  }
+
+  &:active {
+    transform: scale(0.95);
+    box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05);
+  }
 }
