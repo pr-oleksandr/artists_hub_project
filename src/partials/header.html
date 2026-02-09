@@ -3,9 +3,18 @@
     <div class="container header__container">
       <!-- logo -->
       <div class="header__logo header__logo-white">
-        <a href="index.html" aria-label="Go to homepage"
+        <a href="index.html" aria-label="Go to homepage" class="header__logo-link"
           ><img
             src="/img/logo-white.svg"
+            alt="ArtistsHub logo"
+            class="header__logo-image"
+        /></a>
+      </div>
+
+      <div class="header__logo header__logo-purple">
+        <a href="index.html" aria-label="Go to homepage" class="header__logo-link"
+          ><img
+            src="/img/logo-purple.svg"
             alt="ArtistsHub logo"
             class="header__logo-image"
         /></a>
@@ -16,9 +25,46 @@
         type="button"
         aria-label="mobile-menu"
       >
-        <img src="/img/burger-menu.svg" alt="menu" />
+        <span class="burger__icon-wrapper">
+          <img
+            src="/img/burger-menu.svg"
+            alt="Open menu"
+            class="burger__icon"
+          />
+        </span>
       </button>
-      <!-- navigation -->
+
+      <!-- mobile menu -->
+
+      <div class="mobile-menu js-menu">
+        <div class="mobile-menu__header">
+          <div class="mobile-menu__logo">
+            <a href="index.html" aria-label="Go to homepage" class="header__logo-link"
+              ><img
+                src="/img/logo-purple.svg"
+                alt="ArtistsHub logo"
+                class="header__logo-image"
+            /></a>
+          </div>
+          <button
+            class="mobile-menu__close js-close-menu"
+            type="button"
+            aria-label="Close menu"
+          >
+            <span class="mobile-menu__icon-wrapper">
+              <img src="/img/close-icon.svg" alt="Close menu" />
+            </span>
+          </button>
+        </div>
+        <nav class="mobile-menu__nav" aria-label="Mobile navigation">
+          <ul class="mobile-menu__list">
+            <li><a href="#artists" class="mobile-menu__link">Artists</a></li>
+            <li><a href="#about" class="mobile-menu__link">About us</a></li>
+            <li><a href="#reviews" class="mobile-menu__link">Reviews</a></li>
+          </ul>
+        </nav>
+      </div>
+      <!-- navigation desktop-->
       <nav class="nav" aria-label="Main navigation">
         <ul class="nav__list">
           <li><a href="#artists" class="nav__link">Artists</a></li>
