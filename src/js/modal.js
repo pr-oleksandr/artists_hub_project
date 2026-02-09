@@ -48,7 +48,9 @@ function renderArtistModal(artist, albums) {
 
   modal.innerHTML = `
         <div class="modal-content">
-            <button type="button" class="modal-close-btn" aria-label="Close">x</button> 
+            <span class="modal-close-btn-wraper">
+            <button type="button" class="modal-close-btn" aria-label="Close"> <img src="/img/close-icon.svg" alt="Close menu" class="close-modal-btn"></button> 
+            </span>
             <h2 class="m-a-name">${artist.strArtist}</h2>
             <div class="modal-wraper">
             <img src="${artist.strArtistThumb}" alt="${artist.strArtist}" class="m-a-img" loading="lazy">
