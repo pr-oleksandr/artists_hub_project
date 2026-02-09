@@ -1,17 +1,197 @@
 
+.modal-content
+{
+  padding: 64px;
+}
+
+
+.modal-wraper
+{
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    margin-bottom: 48px;
+}
+
 
 .artist-modal {
-  position: fixed;
 
   background: rgba(0,0,0,0.7);
 
   display: flex;
   align-items: center;
   justify-content: center;
-
   z-index: 9999;
 }
+.m-a-img
+{
+  min-width: 576px;
+  height: 393px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+.m-a-name
+{
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 130%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #FFFFFF;
+  flex-basis: 100%;
+  margin-bottom: 48px;
+  display: block;
+}
 
+.desc-container {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+}
+
+
+.desc-box
+{
+  display: flex;
+  flex-direction: column;
+}
+.info-wraper
+{
+    display: flex;
+    gap: 24px;
+}
+.m-a-info-biography {
+  height: 135px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+.m-a-info-biography::-webkit-scrollbar {
+  width: 4px;
+}
+
+.m-a-info-biography::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.m-a-info-biography::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.3);
+  border-radius: 10px;
+}
+
+.m-a-info-biography::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.6);
+}
+
+.m-a-info-biography {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.3) transparent;
+}
+.m-a-topic
+{
+  font-weight: 600;
+
+}
+.m-a-genres-container
+{
+    display: flex;
+    gap: 16px;
+}
+.m-a-genre
+{
+  font-weight: 600;
+  font-size: 16px;
+  border: solid 1px rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  
+}
+
+.m-a-albums-topic
+{
+    margin-bottom: 16px;
+    line-height: 130%;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.m-a-albums
+{
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.m-a-album-item
+{
+   flex: 0 0 calc((100% - 96px) / 4);
+   background-color: rgba(30, 28, 31, 1);
+   border-radius: 16px;
+   padding: 14px 11px;
+
+}
+.m-a-album-name
+{
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.m-a-track-names
+{
+    gap: 8px;
+    font-size: 8px;
+    font-weight: 600;
+}
+.info-container
+{
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    76px
+    32px;
+    padding: 0 12px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+.m-a-track-row
+{
+font-weight:400;
+font-size: 12px;
+display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    80px
+    40px;
+    margin-bottom: 7px;
+    border-radius: 8px;
+
+}
+.m-a-track-row:nth-child(odd)
+{
+    background-color: rgba(255,255,255,0.04);
+}
+.m-a-track-title
+{
+
+}
+.m-a-time-title
+{
+
+}
+.m-a-link-title
+{
+
+}
+.m-a-track-name
+{
+min-width: 97px;
+padding-right: 16px;
+    width: 130px;
+    overflow: hidden;
+}
+/*
 .modal-close-btn {
   position: absolute;
   top: 16px;
@@ -39,63 +219,22 @@
 
   z-index: 9999;
 }
-.modal-close-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
 
-  width: 24px;
-  height: 24px;
-}
 
-.m-a-name
-{
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 130%;
-  letter-spacing: -0.01em;
-  text-align: center;
-  color: #FFFFFF;
-flex-basis: 100%;
-  margin-bottom: 24px;
-   display: block;
-}
+
+
+
+
+
 
 
 /*
-.m-a-img
-{
-      width: 576px;
-  height: 354px;
-  flex-shrink: 0;
-  object-fit: cover;
 
-  border-radius: 12px;
-
-  display: block;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-}
 */
+
 
 /*
-.modal-content
-{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 32px;
-}
-*/
 
-
-.desc-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  display: flex;
-  flex-direction: column;
-  gap: 16px 32px;
- flex: 1;
-}
 
 
 
@@ -104,10 +243,9 @@ flex-basis: 100%;
   font-weight: 400;
   line-height: 150%;
   letter-spacing: 0;
-
   color: #ffffff;
 }
-/*
+
 .modal-content {
   width:100%;
   max-height: 90vh;
@@ -115,10 +253,9 @@ flex-basis: 100%;
   background: #111;
   border-radius: 20px;
   padding: 32px;
-
   overflow-y: auto;
 }
-*/
+
 
 .desc-container .desc-box:nth-child(5),
 .genres-container {
@@ -167,3 +304,4 @@ flex-basis: 100%;
   }
 
 }
+*/
