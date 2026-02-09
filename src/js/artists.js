@@ -56,10 +56,12 @@ function renderArtists(artists, shouldAppend = false) {
         <li class="artist-item">
             <img class="artist-img" src="${strArtistThumb}" alt="${strArtist}">
             <div class="artist-info">
-                <ul class="genres">${genres.map(genre => `<li>${genre}</li>`).join('')}</ul> 
+                <ul class="genres">${genres
+                  .map(genre => `<li>${genre}</li>`)
+                  .join('')}</ul> 
                 <h3 >${strArtist}</h3>
                 <p >${formatBio(strBiographyEN, 20)}</p> 
-                <button type="button" class="learn-more-btn" data-id="${_id}">Learn more<img src="./img/caret-right.svg"
+                <button type="button" class="learn-more-btn" data-id="${_id}">Learn more<img src="/img/caret-right.svg"
         alt="button load more"></button>
             </div>
         </li>

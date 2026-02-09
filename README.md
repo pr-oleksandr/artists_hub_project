@@ -72,11 +72,9 @@ The project consists of the following main sections:
 
 🔗 Links 🎨 Figma Design:
 https://www.figma.com/design/QzED11W6Vgdcv6VoXtvA3h/ArtistsHub?node-id=8246-1856&t=3PD2AyWJfN3uZRdn-0
-🌐 Live Page: https://pr-oleksandr.github.io/artists_hub_project/ ℹ️ Additional
-Information This project was developed as a team-based educational project with
-a focus on collaboration, clean code structure, and modern frontend development
-practices.
 
-```
+🌐 Live Page: https://pr-oleksandr.github.io/artists_hub_project/
 
-```
+ℹ️ Additional Information This project was developed as a team-based educational
+project with a focus on collaboration, clean code structure, and modern frontend
+development practices.
