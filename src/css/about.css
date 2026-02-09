@@ -1,0 +1,154 @@
+.about-wrapper {
+    display: flex;
+    flex-direction: column;
+    /* мобілка/планшет: картинка зверху */
+    align-items: center;
+    /* контент по центру горизонтально */
+    gap: 48px;
+
+    /* Центруємо блок по всій сторінці */
+    max-width: 1440px;
+    /*скільки потрібно по макету */
+    margin: 0 auto;
+    /* центр по горизонталі */
+}
+
+/* Картинка */
+.about-img {
+    border-radius: 16px;
+    width: 268px;
+    /* Mobile фіксована ширина */
+    height: auto;
+    /* Mobile фіксована висота */
+    flex-shrink: 0;
+    /* не дозволяти тягнутися */
+    transition: transform 0.3s ease;
+}
+
+/* Контент-блок */
+.about-content {
+    width: 100%;
+    gap: 20px;
+    /* контейнер по ширині блоку */
+    max-width: 287px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* все зліва всередині контейнера */
+    /* відстань між іконка → заголовок → текст */
+    text-align: left;
+    /* текст по лівому краю */
+}
+
+/* Іконка */
+.about-icon img {
+    width: 52px;
+    /* можна під макет */
+    height: 65px;
+    margin-bottom: 0;
+    /* за потреби можна підлаштувати */
+}
+
+/* Заголовок */
+.about-content h2 {
+    font-weight: 700;
+    font-size: 44px;
+
+    /* line-height: 53px; */
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: #fff;
+}
+
+/* Основний текст */
+.about-content p {
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+
+    /* line-height: 30px; */
+    line-height: 1.5;
+    color: #fff;
+    text-align: left;
+}
+
+/* ===== Tablet ===== */
+@media (min-width: 768px) {
+    .about-wrapper {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .about-content {
+        /* контейнер по ширині блоку */
+        max-width: 640px;
+        gap: 24px;
+    }
+
+    .about-icon img {
+        width: 80px;
+        /* можна під макет */
+        height: 80px;
+    }
+
+    .about-img {
+        width: 704px;
+        height: auto;
+        flex-shrink: 0;
+    }
+
+    .about-content h2 {
+        font-size: 44px;
+    }
+
+    .about-content p {
+        font-weight: 400;
+        font-size: 20px;
+    }
+}
+
+/* ===== Desktop ===== */
+@media (min-width: 1440px) {
+    .about-wrapper {
+        flex-direction: row;
+        /* картинка зліва, контент справа */
+        align-items: flex-start;
+        gap: 32px;
+
+    }
+
+    .about-img {
+        width: 640px;
+        height: 664px;
+        flex-shrink: 0;
+    }
+
+    .about-content {
+        width: 640px;
+        /* фіксована ширина контенту */
+        height: 290px;
+        /* фіксована висота */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        /* іконка і текст зліва */
+        justify-content: flex-start;
+        gap: 24px;
+        /* відстань між елементами (ікона → заголовок → текст) */
+    }
+
+    .about-icon img {
+        width: 80px;
+        /* можна під макет */
+        height: 80px;
+    }
+
+    .about-content h2 {
+        font-size: 60px;
+    }
+
+    .about-content p {
+        font-weight: 400;
+        font-size: 20px;
+    }
+}
