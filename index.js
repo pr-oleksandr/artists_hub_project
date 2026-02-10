@@ -88,5 +88,5 @@ import{a as i,i as c,R as w}from"./assets/vendor-CaGxMn-M.js";(function(){const 
                 <p class="feedback-message">"${n.descr}"</p>
                 <p class="feedback-author">${n.name}</p>
             </div>
-        `,s.appendChild(o)}),F()}function F(){document.querySelectorAll(".rating").forEach(s=>{const n=parseFloat(s.dataset.rating)||0;new w(s,{readOnly:!0,score:n,number:5,path:"../public/raty-images",starType:"img"}).init()})}function P(){p&&p.destroy(),p=new Swiper(".mySwiper",{pagination:{el:".swiper-pagination",dynamicBullets:!0},slidesPerView:1,spaceBetween:20,navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"}})}async function H(){const e=await j();D(e),P()}document.addEventListener("DOMContentLoaded",H);
+        `,s.appendChild(o)}),F()}function F(){document.querySelectorAll(".rating").forEach(s=>{const n=parseFloat(s.dataset.rating)||0;new w(s,{readOnly:!0,score:n,number:5,path:"raty-images/",starType:"img"}).init()})}function P(){p&&p.destroy(),p=new Swiper(".mySwiper",{pagination:{el:".swiper-pagination",dynamicBullets:!0},slidesPerView:1,spaceBetween:20,navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"}})}async function H(){const e=await j();D(e),P()}document.addEventListener("DOMContentLoaded",H);
 //# sourceMappingURL=index.js.map
