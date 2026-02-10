@@ -192,3 +192,17 @@
     box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05);
   }
 }
+
+.dropdown-list {
+  display: none;
+
+}
+
+.dropdown-btn {
+  background-color: transparent;
+  color: #fff;
+}
+
+.dropdown.open .dropdown-list {
+  display: block;
+}
