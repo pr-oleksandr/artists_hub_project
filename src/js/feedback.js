@@ -1,110 +1,89 @@
-// Swiper
-import Swiper from 'swiper';
-import 'swiper/css';
+import axios from 'axios';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+axios.defaults.baseURL = 'https://sound-wave.b.goit.study/api';
+import Raty from 'raty-js/src/raty.js';
 
-const API_URL = 'https://sound-wave.b.goit.study/api/feedbacks?limit=10&page=1';
+let swiper;
 
-const swiperWrapper = document.querySelector('.swiper-wrapper');
-const prevBtn = document.querySelector('.prev-arrow');
-const nextBtn = document.querySelector('.next-arrow');
-
-const dotFirst = document.querySelector('.dot-first');
-const dotMiddle = document.querySelector('.dot-middle');
-const dotLast = document.querySelector('.dot-last');
-
-/*  ЗАВАНТАЖЕННЯ ВІДГУКІВ */
-async function loadFeedbacks() {
+async function fetchFeedbacks() {
   try {
-    const response = await fetch(API_URL);
-    if (!response.ok) {
-      console.error(`Помилка HTTP: ${response.status}`);
-      return;
-    }
-
-    const data = await response.json();
-    const feedbacks = Array.isArray(data.data) ? data.data.slice(0, 10) : [];
-
-    if (!feedbacks.length) {
-      console.warn('Немає відгуків для відображення.');
-      swiperWrapper.innerHTML =
-        '<p style="color:#fff;text-align:center;">Відгуків поки немає.</p>';
-      return;
-    }
-
-    createSlides(feedbacks);
-    initSwiper(feedbacks.length);
+    const response = await axios.get('/feedbacks', {
+      params: {
+        page: 1,
+        limit: 10,
+      },
+    });
+    return response.data.data || [];
   } catch (error) {
-    console.error('Помилка при завантаженні відгуків:', error);
+    console.error('Error fetching feedbacks:', error);
+    iziToast.error({
+      title: 'Error',
+      message: 'Failed to load feedbacks.',
+    });
+    return [];
   }
 }
 
-/*  СТВОРЕННЯ СЛАЙДІВ */
-function createSlides(feedbacks) {
-  const slidesMarkup = feedbacks
-    .map(f => {
-      const rating = Math.round(f.rating);
-      return `
-        <div class="swiper-slide feedback-content">
-          <div class="stars-rating" data-score="${rating}"></div>
-          <blockquote class="feedback-quote">"${f.descr}"</blockquote>
-          <div class="feedback-author">${f.name}</div>
-        </div>
-      `;
-    })
-    .join('');
+function renderFeedbacks(feedbacks) {
+  const swiperWrapper = document.querySelector('.swiper-wrapper');
+  swiperWrapper.innerHTML = '';
 
-  swiperWrapper.innerHTML = slidesMarkup;
-  initStarRatings();
+  feedbacks.forEach(feedback => {
+    const slide = document.createElement('div');
+    slide.className = 'swiper-slide';
+    slide.innerHTML = `
+            <div class="feedback-card">
+            <div class="rating" data-rating="${feedback.rating || 0}"></div>
+                <p class="feedback-message">"${feedback.descr}"</p>
+                <p class="feedback-author">${feedback.name}</p>
+            </div>
+        `;
+    swiperWrapper.appendChild(slide);
+  });
+  initRatings();
 }
 
-/* ІНІЦІАЛІЗАЦІЯ ЗІРОЧОК */
-function initStarRatings() {
-  $('.stars-rating').each(function () {
-    const score = $(this).data('score');
-    $(this).raty({
-      score: score,
+function initRatings() {
+  const ratingElements = document.querySelectorAll('.rating');
+
+  ratingElements.forEach(el => {
+    const ratingValue = parseFloat(el.dataset.rating) || 0;
+
+    const ratyInstance = new Raty(el, {
       readOnly: true,
-      starType: 'i',
-      hints: ['', '', '', '', ''],
-      starOn: '★',
-      starOff: '☆',
+      score: ratingValue,
+      number: 5,
+      starType: 'img',
+      path: '/raty-images/',
     });
+
+    ratyInstance.init();
   });
 }
 
-/* SWIPER */
-function initSwiper(totalSlides) {
-  const swiper = new Swiper('.feedback-slider', {
+function initSwiper() {
+  if (swiper) swiper.destroy();
+
+  swiper = new Swiper('.mySwiper', {
+    pagination: {
+      el: '.swiper-pagination',
+      dynamicBullets: true,
+    },
+    loop: true,
     slidesPerView: 1,
-    spaceBetween: 30,
-    loop: false,
-    navigation: { nextEl: nextBtn, prevEl: prevBtn },
-    on: {
-      slideChange: function () {
-        updatePagination(this.activeIndex, totalSlides);
-      },
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
   });
-
-  updatePagination(0, totalSlides);
-
-  dotFirst.addEventListener('click', () => swiper.slideTo(0));
-  dotMiddle.addEventListener('click', () =>
-    swiper.slideTo(Math.floor(totalSlides / 2))
-  );
-  dotLast.addEventListener('click', () => swiper.slideTo(totalSlides - 1));
 }
 
-/* КАСТОМНА ПАГІНАЦІЯ */
-function updatePagination(activeIndex, total) {
-  dotFirst.classList.remove('active');
-  dotMiddle.classList.remove('active');
-  dotLast.classList.remove('active');
-
-  if (activeIndex === 0) dotFirst.classList.add('active');
-  else if (activeIndex === total - 1) dotLast.classList.add('active');
-  else dotMiddle.classList.add('active');
+async function loadAndRenderFeedbacks() {
+  const feedbacks = await fetchFeedbacks();
+  renderFeedbacks(feedbacks);
+  initSwiper();
 }
 
-/* ЗАПУСК */
-loadFeedbacks();
+document.addEventListener('DOMContentLoaded', loadAndRenderFeedbacks);
