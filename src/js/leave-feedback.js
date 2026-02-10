@@ -8,9 +8,12 @@ const leaveFeedbackBtn = document.querySelector('.leave-feedback-btn');
 axios.defaults.baseURL = 'https://sound-wave.b.goit.study/api';
 
 async function openFeedbackModal() {
+  leaveFeedbackBtn.disabled = true;
   const modal = createModal('feedback');
   document.body.appendChild(modal);
-  setupModalCloseHandlers(modal);
+  setupModalCloseHandlers(modal, () => {
+    leaveFeedbackBtn.disabled = false;
+  });
 
   try {
     renderModalContent(modal);
@@ -20,13 +23,14 @@ async function openFeedbackModal() {
       title: 'Error',
       message: 'Failed to open feedback form.',
     });
+    leaveFeedbackBtn.disabled = false;
   }
 }
 
 function renderModalContent(modal) {
   const content = modal.querySelector('.feedback-modal-content');
   content.innerHTML = `
-          <div class="feedback-form">
+          <form class="feedback-form">
           <span class="modal-close-btn-wraper">
             <button type="button" class="modal-close-btn" aria-label="Close"> <img src="/img/close-icon.svg" alt="Close menu" class="close-modal-btn"></button> 
         </span>
@@ -34,9 +38,82 @@ function renderModalContent(modal) {
               <input type="text" id="feedback-name" placeholder="Emily">
               <textarea id="feedback-message" placeholder="Type your message..."></textarea>
                <div class="rating" data-rating="0"></div>
-              <button id="submit-feedback">Submit Feedback</button>
-              </div>
+              <button type="submit" id="submit-feedback" disabled>Submit Feedback</button>
+              </form>
               `;
+
+  const ratingElement = content.querySelector('.rating');
+  const raty = new Raty(ratingElement, {
+    number: 5,
+    score: 0,
+    half: true,
+    path: 'raty-images/',
+    starType: 'img',
+    click: function (score) {
+      ratingElement.setAttribute('data-rating', score);
+      content.querySelector('#submit-feedback').disabled = false;
+    },
+    hints: ['Bad', 'Lot to Improve', 'Usable', 'Good', 'Gorgeous'],
+  });
+  raty.init();
+
+  setupFormValidation(content.querySelector('.feedback-form'), modal);
+}
+
+function setupFormValidation(form, modal) {
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+
+    const name = form.querySelector('#feedback-name').value.trim();
+    const descr = form.querySelector('#feedback-message').value.trim();
+    const rating = parseFloat(
+      form.querySelector('.rating').getAttribute('data-rating')
+    );
+
+    let errors = [];
+
+    if (name.length < 2 || name.length > 16) {
+      errors.push('Name must be between 2 and 16 characters.');
+    }
+    if (descr.length < 10 || descr.length > 512) {
+      errors.push('Message must be between 10 and 512 characters.');
+    }
+    if (isNaN(rating) || rating < 1 || rating > 5) {
+      errors.push('Rating must be between 1 and 5.');
+    }
+
+    if (errors.length > 0) {
+      iziToast.error({
+        title: 'Validation Error',
+        message: errors.join(' '),
+      });
+      return;
+    }
+
+    const feedbackData = { name, descr, rating };
+    try {
+      const response = await axios.post('/feedbacks', feedbackData);
+
+      iziToast.success({
+        title: 'Success',
+        message: 'Your feedback has been submitted!',
+      });
+
+      // Закрыть модалку после успешной отправки
+      modal.remove();
+    } catch (error) {
+      console.error(
+        'Full error:',
+        error.response?.status,
+        error.response?.data
+      );
+      console.error('Error submitting feedback:', error);
+      iziToast.error({
+        title: 'Error',
+        message: 'Failed to submit feedback. Please try again later.',
+      });
+    }
+  });
 }
 
 leaveFeedbackBtn.addEventListener('click', openFeedbackModal);

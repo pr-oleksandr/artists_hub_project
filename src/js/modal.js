@@ -70,25 +70,30 @@ function hideGlobalLoader() {
   }
 }
 
-export function setupModalCloseHandlers(modal) {
+export function setupModalCloseHandlers(modal, onClose) {
   const closeBtn = modal.querySelector('.modal-close-btn');
-  closeBtn.addEventListener('click', () => {
+
+  function closeModal() {
     modal.remove();
-  });
+    if (typeof onClose === 'function') {
+      onClose(); // включаем кнопку обратно
+    }
+    document.removeEventListener('keydown', closeOnEsc);
+    modal.removeEventListener('click', closeOnBackdropClick);
+  }
+
+  closeBtn.addEventListener('click', closeModal);
 
   const closeOnEsc = event => {
     if (event.key === 'Escape') {
-      modal.remove();
-      document.removeEventListener('keydown', closeOnEsc);
+      closeModal();
     }
   };
   document.addEventListener('keydown', closeOnEsc);
 
   const closeOnBackdropClick = event => {
     if (event.target === modal) {
-      modal.remove();
-      modal.removeEventListener('click', closeOnBackdropClick);
-      document.removeEventListener('keydown', closeOnEsc);
+      closeModal();
     }
   };
   modal.addEventListener('click', closeOnBackdropClick);
