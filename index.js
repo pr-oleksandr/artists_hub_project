@@ -1,11 +1,11 @@
-import{a as r,i as d,S as M}from"./assets/vendor-Bet7Kwql.js";(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))a(t);new MutationObserver(t=>{for(const n of t)if(n.type==="childList")for(const i of n.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&a(i)}).observe(document,{childList:!0,subtree:!0});function o(t){const n={};return t.integrity&&(n.integrity=t.integrity),t.referrerPolicy&&(n.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?n.credentials="include":t.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function a(t){if(t.ep)return;t.ep=!0;const n=o(t);fetch(t.href,n)}})();const q=document.querySelector(".js-open-menu"),S=document.querySelector(".js-close-menu"),m=document.querySelector(".js-menu"),g=document.body,T=document.querySelectorAll(".mobile-menu__link");q.addEventListener("click",()=>{m.classList.add("is-open"),g.classList.add("no-scroll")});S.addEventListener("click",()=>{m.classList.add("closing"),g.classList.remove("no-scroll"),setTimeout(()=>{m.classList.remove("is-open","closing")},200)});T.forEach(e=>{e.addEventListener("click",()=>{m.classList.remove("is-open"),g.classList.remove("no-scroll")})});const h=document.querySelector(".loader");function A(){h.classList.remove("is-hidden")}function B(){h.classList.add("is-hidden")}r.defaults.baseURL="https://sound-wave.b.goit.study/api";document.querySelector(".loader");const O=e=>{const s=Math.floor(e/6e4),o=Math.floor(e%6e4/1e3);return`${s}:${o<10?"0":""}${o}`};async function x(e){if(!e){d.error({title:"Error",message:"Artist ID is missing."});return}const s=j();document.body.appendChild(s),y(s);try{const o=await r.get(`/artists/${e}`),t=(await r.get(`/artists/${e}/albums`)).data.albumsList||[],n=o.data;C(s,n,t)}catch(o){console.error("Error fetching artist details:",o),d.error({title:"Error",message:"Failed to load artist details."})}}function j(){const e=document.createElement("div");return e.className="artist-modal",e.innerHTML=`
+import{a as i,i as c,R as w}from"./assets/vendor-CaGxMn-M.js";(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))o(t);new MutationObserver(t=>{for(const a of t)if(a.type==="childList")for(const r of a.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&o(r)}).observe(document,{childList:!0,subtree:!0});function n(t){const a={};return t.integrity&&(a.integrity=t.integrity),t.referrerPolicy&&(a.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?a.credentials="include":t.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function o(t){if(t.ep)return;t.ep=!0;const a=n(t);fetch(t.href,a)}})();const L=document.querySelector(".js-open-menu"),$=document.querySelector(".js-close-menu"),m=document.querySelector(".js-menu"),f=document.body,k=document.querySelectorAll(".mobile-menu__link");L.addEventListener("click",()=>{m.classList.add("is-open"),f.classList.add("no-scroll")});$.addEventListener("click",()=>{m.classList.add("closing"),f.classList.remove("no-scroll"),setTimeout(()=>{m.classList.remove("is-open","closing")},200)});k.forEach(e=>{e.addEventListener("click",()=>{m.classList.remove("is-open"),f.classList.remove("no-scroll")})});const g=document.querySelector(".loader");function E(){g.classList.remove("is-hidden")}function M(){g.classList.add("is-hidden")}i.defaults.baseURL="https://sound-wave.b.goit.study/api";document.querySelector(".loader");const A=e=>{const s=Math.floor(e/6e4),n=Math.floor(e%6e4/1e3);return`${s}:${n<10?"0":""}${n}`};async function B(e){if(!e){c.error({title:"Error",message:"Artist ID is missing."});return}const s=S();document.body.appendChild(s),v(s);try{const n=await i.get(`/artists/${e}`),t=(await i.get(`/artists/${e}/albums`)).data.albumsList||[],a=n.data;O(s,a,t)}catch(n){console.error("Error fetching artist details:",n),c.error({title:"Error",message:"Failed to load artist details."})}}function S(){const e=document.createElement("div");return e.className="artist-modal",e.innerHTML=`
     <div class="modal-content">
     <span class="modal-close-btn-wraper">
             <button type="button" class="modal-close-btn" aria-label="Close"> <img src="/img/close-icon.svg" alt="Close menu" class="close-modal-btn"></button> 
             </span>
       <div class="loader"></div>
     </div>
-  `,e}function y(e){e.querySelector(".modal-close-btn").addEventListener("click",()=>{e.remove()});const o=t=>{t.key==="Escape"&&(e.remove(),document.removeEventListener("keydown",o))};document.addEventListener("keydown",o);const a=t=>{t.target===e&&(e.remove(),e.removeEventListener("click",a),document.removeEventListener("keydown",o))};e.addEventListener("click",a)}function C(e,s,o){const a=e.querySelector(".modal-content");a.innerHTML=`
+  `,e}function v(e){e.querySelector(".modal-close-btn").addEventListener("click",()=>{e.remove()});const n=t=>{t.key==="Escape"&&(e.remove(),document.removeEventListener("keydown",n))};document.addEventListener("keydown",n);const o=t=>{t.target===e&&(e.remove(),e.removeEventListener("click",o),document.removeEventListener("keydown",n))};e.addEventListener("click",o)}function O(e,s,n){const o=e.querySelector(".modal-content");o.innerHTML=`
         <div class="modal-content">
             <span class="modal-close-btn-wraper">
             <button type="button" class="modal-close-btn" aria-label="Close"> <img src="/img/close-icon.svg" alt="Close menu" class="close-modal-btn"></button> 
@@ -45,22 +45,22 @@ import{a as r,i as d,S as M}from"./assets/vendor-Bet7Kwql.js";(function(){const 
             </div>
              <p class="m-a-albums-topic">Albums</p>
             <ul class="m-a-albums">
-            ${o.map(t=>`
+            ${n.map(t=>`
                 <li class="m-a-album-item">
                 <span class="m-a-album-name">${t.strAlbum}</span>
                 <ul class="m-a-track-names">
                    <div class="info-container"><p class="m-a-track-title">Track</p><p class="m-a-time-title">Time</p><p class="m-a-link-title">Link</p></div>
-                ${t.tracks.map(n=>`
+                ${t.tracks.map(a=>`
                  
                         <div class="m-a-track-row">
-                            <span class="m-a-track-name">${n.strTrack}</span>
-                            <span class="m-a-track-duration">${O(n.intDuration)}</span>
+                            <span class="m-a-track-name">${a.strTrack}</span>
+                            <span class="m-a-track-duration">${A(a.intDuration)}</span>
                             <a class="m-a-track-link"
-                            href="${n.movie&&n.movie.trim()?n.movie:"#"}"  
+                            href="${a.movie&&a.movie.trim()?a.movie:"#"}"  
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Open Youtube link">
-                            ${n.movie&&n.movie.trim()?`
+                            ${a.movie&&a.movie.trim()?`
           <svg class="youtube-logo" width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
             <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.016 3.016 0 0 0 .502 6.186 31.91 31.91 0 0 0 0 12.005a31.91 31.91 0 0 0 .502 5.819 3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.016 3.016 0 0 0 2.122-2.136A31.91 31.91 0 0 0 24 12.005a31.91 31.91 0 0 0-.502-5.819zM9.75 15.566V8.434L15.75 12l-6 3.566z"/>
           </svg>
@@ -71,22 +71,22 @@ import{a as r,i as d,S as M}from"./assets/vendor-Bet7Kwql.js";(function(){const 
                 </li>`).join("")}
             </ul>
          </div>
-    `,y(e)}const P="data:image/svg+xml,%3csvg%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M9%2019L17%2012L9%205V19Z'%20fill='white'/%3e%3c/svg%3e";r.defaults.baseURL="https://sound-wave.b.goit.study/api";const u=document.querySelector(".artists-list"),c=document.querySelector(".load-more-btn");let l=1;const D=8;L();c.addEventListener("click",()=>{l+=1,L()});u.addEventListener("click",function(e){const s=e.target.closest(".learn-more-btn");if(!s)return;const o=s.dataset.id;x(o)});async function H(e){return(await r.get("/artists",{params:{page:e,limit:D}})).data}function R(e,s=20){if(!e)return"";const o=e.indexOf("."),a=e.split(" ");if(o!==-1){const t=e.substring(0,o+1);if(t.split(" ").length<=s)return t}return a.length>s?a.slice(0,s).join(" ")+"...":e}function N(e,s=!1){const o=e.map(({_id:a,strArtist:t,strArtistThumb:n,genres:i,strBiographyEN:k})=>`
+    `,v(e)}const T="data:image/svg+xml,%3csvg%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M9%2019L17%2012L9%205V19Z'%20fill='white'/%3e%3c/svg%3e";i.defaults.baseURL="https://sound-wave.b.goit.study/api";const u=document.querySelector(".artists-list"),l=document.querySelector(".load-more-btn");let d=1;const q=8;b();l.addEventListener("click",()=>{d+=1,b()});u.addEventListener("click",function(e){const s=e.target.closest(".learn-more-btn");if(!s)return;const n=s.dataset.id;B(n)});async function C(e){return(await i.get("/artists",{params:{page:e,limit:q}})).data}function x(e,s=20){if(!e)return"";const n=e.indexOf("."),o=e.split(" ");if(n!==-1){const t=e.substring(0,n+1);if(t.split(" ").length<=s)return t}return o.length>s?o.slice(0,s).join(" ")+"...":e}function R(e,s=!1){const n=e.map(({_id:o,strArtist:t,strArtistThumb:a,genres:r,strBiographyEN:h})=>`
         <li class="artist-item">
-            <img class="artist-img" src="${n}" alt="${t}">
+            <img class="artist-img" src="${a}" alt="${t}">
             <div class="artist-info">
-                <ul class="genres">${i.map(E=>`<li>${E}</li>`).join("")}</ul> 
+                <ul class="genres">${r.map(y=>`<li>${y}</li>`).join("")}</ul> 
                 <h3 >${t}</h3>
-                <p >${R(k,20)}</p> 
-                <button type="button" class="learn-more-btn" data-id="${a}">Learn more<img src="${P}"
+                <p >${x(h,20)}</p> 
+                <button type="button" class="learn-more-btn" data-id="${o}">Learn more<img src="${T}"
         ></button>
             </div>
         </li>
-    `).join("");s?u.insertAdjacentHTML("beforeend",o):u.innerHTML=o}async function L(){try{A(),c.classList.add("is-hidden");const e=await H(l);N(e.artists,l>1),e.page>=e.totalPages?(c.classList.add("is-hidden"),l>1&&d.info({position:"topRight",message:"Ouch! That is all, folks! No more artists to show."})):c.classList.remove("is-hidden")}catch{d.error({position:"topRight",message:"Welcome to Ukraine! Blackout again? Or the server is resting..."})}finally{B()}}const F="https://sound-wave.b.goit.study/api/feedbacks?limit=10&page=1",w=document.querySelector(".swiper-wrapper"),z=document.querySelector(".prev-arrow"),I=document.querySelector(".next-arrow"),p=document.querySelector(".dot-first"),f=document.querySelector(".dot-middle"),v=document.querySelector(".dot-last");async function U(){try{const e=await fetch(F);if(!e.ok){console.error(`Помилка HTTP: ${e.status}`);return}const s=await e.json(),o=Array.isArray(s.data)?s.data.slice(0,10):[];if(!o.length){console.warn("Немає відгуків для відображення."),w.innerHTML='<p style="color:#fff;text-align:center;">Відгуків поки немає.</p>';return}Y(o),V(o.length)}catch(e){console.error("Помилка при завантаженні відгуків:",e)}}function Y(e){const s=e.map(o=>`
-        <div class="swiper-slide feedback-content">
-          <div class="stars-rating" data-score="${Math.round(o.rating)}"></div>
-          <blockquote class="feedback-quote">"${o.descr}"</blockquote>
-          <div class="feedback-author">${o.name}</div>
-        </div>
-      `).join("");w.innerHTML=s,_()}function _(){$(".stars-rating").each(function(){const e=$(this).data("score");$(this).raty({score:e,readOnly:!0,starType:"i",hints:["","","","",""],starOn:"★",starOff:"☆"})})}function V(e){const s=new M(".feedback-slider",{slidesPerView:1,spaceBetween:30,loop:!1,navigation:{nextEl:I,prevEl:z},on:{slideChange:function(){b(this.activeIndex,e)}}});b(0,e),p.addEventListener("click",()=>s.slideTo(0)),f.addEventListener("click",()=>s.slideTo(Math.floor(e/2))),v.addEventListener("click",()=>s.slideTo(e-1))}function b(e,s){p.classList.remove("active"),f.classList.remove("active"),v.classList.remove("active"),e===0?p.classList.add("active"):e===s-1?v.classList.add("active"):f.classList.add("active")}U();
+    `).join("");s?u.insertAdjacentHTML("beforeend",n):u.innerHTML=n}async function b(){try{E(),l.classList.add("is-hidden");const e=await C(d);R(e.artists,d>1),e.page>=e.totalPages?(l.classList.add("is-hidden"),d>1&&c.info({position:"topRight",message:"Ouch! That is all, folks! No more artists to show."})):l.classList.remove("is-hidden")}catch{c.error({position:"topRight",message:"Welcome to Ukraine! Blackout again? Or the server is resting..."})}finally{M()}}i.defaults.baseURL="https://sound-wave.b.goit.study/api";let p;async function j(){try{return(await i.get("/feedbacks",{params:{page:1,limit:10}})).data.data||[]}catch(e){return console.error("Error fetching feedbacks:",e),c.error({title:"Error",message:"Failed to load feedbacks."}),[]}}function D(e){const s=document.querySelector(".swiper-wrapper");s.innerHTML="",e.forEach(n=>{const o=document.createElement("div");o.className="swiper-slide",o.innerHTML=`
+            <div class="feedback-card">
+            <div class="rating" data-rating="${n.rating||0}"></div>
+                <p class="feedback-message">"${n.descr}"</p>
+                <p class="feedback-author">${n.name}</p>
+            </div>
+        `,s.appendChild(o)}),F()}function F(){document.querySelectorAll(".rating").forEach(s=>{const n=parseFloat(s.dataset.rating)||0;new w(s,{readOnly:!0,score:n,number:5,starType:"img",path:"/raty-images/"}).init()})}function P(){p&&p.destroy(),p=new Swiper(".mySwiper",{pagination:{el:".swiper-pagination",dynamicBullets:!0},loop:!0,slidesPerView:1,spaceBetween:20,navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"}})}async function H(){const e=await j();D(e),P()}document.addEventListener("DOMContentLoaded",H);
 //# sourceMappingURL=index.js.map
