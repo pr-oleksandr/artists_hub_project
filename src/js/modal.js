@@ -19,34 +19,73 @@ export async function openArtistModal(artistId) {
     return;
   }
 
+  const modal = createLoadingModal();
+  document.body.appendChild(modal);
+
+  setupModalCloseHandlers(modal);
+
   try {
-    loader.classList.remove('is-hidden');
     const response = await axios.get(`/artists/${artistId}`);
     const albumsResponse = await axios.get(`/artists/${artistId}/albums`);
     const albums = albumsResponse.data.albumsList || [];
     const artist = response.data;
-    renderArtistModal(artist, albums);
+    renderArtistContent(modal, artist, albums);
   } catch (error) {
     console.error('Error fetching artist details:', error);
     iziToast.error({
       title: 'Error',
       message: 'Failed to load artist details.',
     });
-  } finally {
-    loader.classList.add('is-hidden');
   }
 }
 
-function renderArtistModal(artist, albums) {
-  const existingModalWindow = document.querySelector('.artist-modal');
-  if (existingModalWindow) {
-    existingModalWindow.remove();
-  }
-
+function createLoadingModal() {
   const modal = document.createElement('div');
   modal.className = 'artist-modal';
-
   modal.innerHTML = `
+    <div class="modal-content">
+    <span class="modal-close-btn-wraper">
+            <button type="button" class="modal-close-btn" aria-label="Close"> <img src="/img/close-icon.svg" alt="Close menu" class="close-modal-btn"></button> 
+            </span>
+      <div class="loader"></div>
+    </div>
+  `;
+  return modal;
+}
+
+function setupModalCloseHandlers(modal) {
+  const closeBtn = modal.querySelector('.modal-close-btn');
+  closeBtn.addEventListener('click', () => {
+    modal.remove();
+  });
+
+  const closeOnEsc = event => {
+    if (event.key === 'Escape') {
+      modal.remove();
+      document.removeEventListener('keydown', closeOnEsc);
+    }
+  };
+  document.addEventListener('keydown', closeOnEsc);
+
+  const closeOnBackdropClick = event => {
+    if (event.target === modal) {
+      modal.remove();
+      modal.removeEventListener('click', closeOnBackdropClick);
+      document.removeEventListener('keydown', closeOnEsc);
+    }
+  };
+  modal.addEventListener('click', closeOnBackdropClick);
+}
+
+function renderArtistContent(modal, artist, albums) {
+  // const existingModalWindow = document.querySelector('.artist-modal');
+  // if (existingModalWindow) {
+  //   existingModalWindow.remove();
+  // }
+
+  const content = modal.querySelector('.modal-content');
+
+  content.innerHTML = `
         <div class="modal-content">
             <span class="modal-close-btn-wraper">
             <button type="button" class="modal-close-btn" aria-label="Close"> <img src="/img/close-icon.svg" alt="Close menu" class="close-modal-btn"></button> 
@@ -100,7 +139,21 @@ function renderArtistModal(artist, albums) {
                         <div class="m-a-track-row">
                             <span class="m-a-track-name">${track.strTrack}</span>
                             <span class="m-a-track-duration">${formattedDuration(track.intDuration)}</span>
-                            <a class="m-a-track-link" href="${track.strTrackThumb || '#'}"  target="_blank">Y</a>
+                            <a class="m-a-track-link"
+                            href="${track.movie && track.movie.trim() ? track.movie : '#'}"  
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Open Youtube link">
+                            ${
+                              track.movie && track.movie.trim()
+                                ? `
+          <svg class="youtube-logo" width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.016 3.016 0 0 0 .502 6.186 31.91 31.91 0 0 0 0 12.005a31.91 31.91 0 0 0 .502 5.819 3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.016 3.016 0 0 0 2.122-2.136A31.91 31.91 0 0 0 24 12.005a31.91 31.91 0 0 0-.502-5.819zM9.75 15.566V8.434L15.75 12l-6 3.566z"/>
+          </svg>
+        `
+                                : ''
+                            }
+                            </a>
                         </div>`
                   )
                   .join('')}
@@ -111,19 +164,6 @@ function renderArtistModal(artist, albums) {
             </ul>
          </div>
     `;
-
-  document.body.appendChild(modal);
-
-  const closeBtn = modal.querySelector('.modal-close-btn');
-  closeBtn.addEventListener('click', () => {
-    modal.remove();
-  });
-
-  const closeOnEsc = event => {
-    if (event.key === 'Escape') {
-      modal.remove();
-      document.removeEventListener('keydown', closeOnEsc);
-    }
-  };
-  document.addEventListener('keydown', closeOnEsc);
+  setupModalCloseHandlers(modal);
+  // document.body.appendChild(modal);
 }

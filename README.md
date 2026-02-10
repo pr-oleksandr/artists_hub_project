@@ -55,7 +55,8 @@ The project consists of the following main sections:
 - **Artists Developers** - Ivan Boltenkov & (Anna Postar with Nikita Sydorovych)
 - **Modal Developers** - Roman Karhalskov & (Anna Postar with Andrii Karas)
 - **About Developer** - Hanna Kondratenko
-- **Feedback Developer** - Pavlo Koplyk &
+- **Feedback Developer** - Roman Karhalskov & (Pavlo Koplyk with Vladyslav
+  Fitiak)
 - **Footer Developer** - Nikita Sydorovych
 
 ---
@@ -75,6 +76,6 @@ https://www.figma.com/design/QzED11W6Vgdcv6VoXtvA3h/ArtistsHub?node-id=8246-1856
 
 🌐 Live Page: https://pr-oleksandr.github.io/artists_hub_project/
 
-ℹ️ Additional Information This project was developed as a team-based educational
-project with a focus on collaboration, clean code structure, and modern frontend
-development practices.
+ℹ️ Additional Information: This project was developed as a team-based
+educational project with a focus on collaboration, clean code structure, and
+modern frontend development practices.
