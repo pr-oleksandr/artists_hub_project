@@ -23,9 +23,12 @@ body {
 
 
 /* scroll header */
+#about, #artists, #reviews {
+  scroll-margin-top: 64px;
 
-section {
-  scroll-margin-top: 72px;
+  @media screen and (min-width:768px) {
+    scroll-margin-top: 72px;
+  }
 }
 
 .no-scroll {
