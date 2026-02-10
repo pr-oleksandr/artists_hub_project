@@ -56,9 +56,7 @@ allDropdowns.forEach(crntDropdown => {
 });
 
 genreList.addEventListener('click', e => {
-  if (!e.target.dataset.value) return;
-
-  filters.genre = e.target.dataset.value;
+  filters.genre = e.target.dataset.value || null;
   currentPage = 1;
 
   closeDropdowns();
