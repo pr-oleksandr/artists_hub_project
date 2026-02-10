@@ -19,13 +19,16 @@ export async function openArtistModal(artistId) {
     return;
   }
 
+  showGlobalLoader(); // показываем глобальный лоадер
   try {
-    loader.classList.remove('is-hidden');
     const response = await axios.get(`/artists/${artistId}`);
     const albumsResponse = await axios.get(`/artists/${artistId}/albums`);
     const albums = albumsResponse.data.albumsList || [];
     const artist = response.data;
-    renderArtistModal(artist, albums);
+    const modal = createModal('artists');
+    document.body.appendChild(modal);
+    setupModalCloseHandlers(modal);
+    renderArtistContent(modal, artist, albums);
   } catch (error) {
     console.error('Error fetching artist details:', error);
     iziToast.error({
@@ -33,21 +36,73 @@ export async function openArtistModal(artistId) {
       message: 'Failed to load artist details.',
     });
   } finally {
-    loader.classList.add('is-hidden');
+    hideGlobalLoader();
   }
 }
 
-function renderArtistModal(artist, albums) {
-  const existingModalWindow = document.querySelector('.artist-modal');
-  if (existingModalWindow) {
-    existingModalWindow.remove();
+export function createModal(modalAdress) {
+  const modal = document.createElement('div');
+  modal.className = `${modalAdress}-modal`;
+  modal.innerHTML = `
+    <div class="${modalAdress}-modal-content">
+    <span class="modal-close-btn-wraper">
+            <button type="button" class="modal-close-btn" aria-label="Close"> <img src="/img/close-icon.svg" alt="Close menu" class="close-modal-btn"></button> 
+            </span>
+    </div>
+  `;
+  return modal;
+}
+
+function showGlobalLoader() {
+  let loader = document.querySelector('.global-loader');
+  if (!loader) {
+    loader = document.createElement('div');
+    loader.className = 'global-loader';
+    loader.innerHTML = `<div class="loader"></div>`;
+    document.body.appendChild(loader);
+  }
+  loader.classList.remove('hidden');
+}
+function hideGlobalLoader() {
+  const loader = document.querySelector('.global-loader');
+  if (loader) {
+    loader.classList.add('hidden');
+  }
+}
+
+export function setupModalCloseHandlers(modal, onClose) {
+  const closeBtn = modal.querySelector('.modal-close-btn');
+
+  function closeModal() {
+    modal.remove();
+    if (typeof onClose === 'function') {
+      onClose(); // включаем кнопку обратно
+    }
+    document.removeEventListener('keydown', closeOnEsc);
+    modal.removeEventListener('click', closeOnBackdropClick);
   }
 
-  const modal = document.createElement('div');
-  modal.className = 'artist-modal';
+  closeBtn.addEventListener('click', closeModal);
 
-  modal.innerHTML = `
-        <div class="modal-content">
+  const closeOnEsc = event => {
+    if (event.key === 'Escape') {
+      closeModal();
+    }
+  };
+  document.addEventListener('keydown', closeOnEsc);
+
+  const closeOnBackdropClick = event => {
+    if (event.target === modal) {
+      closeModal();
+    }
+  };
+  modal.addEventListener('click', closeOnBackdropClick);
+}
+
+function renderArtistContent(modal, artist, albums) {
+  const content = modal.querySelector('.artists-modal-content');
+
+  content.innerHTML = `
             <span class="modal-close-btn-wraper">
             <button type="button" class="modal-close-btn" aria-label="Close"> <svg class="SVG-icon"
               width="24" height="16">
@@ -115,21 +170,6 @@ function renderArtistModal(artist, albums) {
       )
       .join('')}
             </ul>
-         </div>
     `;
-
-  document.body.appendChild(modal);
-
-  const closeBtn = modal.querySelector('.modal-close-btn');
-  closeBtn.addEventListener('click', () => {
-    modal.remove();
-  });
-
-  const closeOnEsc = event => {
-    if (event.key === 'Escape') {
-      modal.remove();
-      document.removeEventListener('keydown', closeOnEsc);
-    }
-  };
-  document.addEventListener('keydown', closeOnEsc);
+  setupModalCloseHandlers(modal);
 }

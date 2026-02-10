@@ -3,7 +3,9 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import { openArtistModal } from './modal.js';
 import { showLoader, hideLoader } from './loader.js';
+import caretIcon from '../img/caret-right.svg';
 axios.defaults.baseURL = 'https://sound-wave.b.goit.study/api';
+
 const artistsList = document.querySelector('.artists-list');
 const loadMoreBtn = document.querySelector('.load-more-btn');
 let currentPage = 1;

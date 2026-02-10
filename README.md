@@ -51,11 +51,12 @@ The project consists of the following main sections:
 - **Team Lead** - Oleksandr Prystash
 - **Scrum Master** - Hanna Kondratenko
 - **Header Developer** - Andrii Karas
-- **Hero Developer** -
+- **Hero Developer** - Ella Tseluiko
 - **Artists Developers** - Ivan Boltenkov & (Anna Postar with Nikita Sydorovych)
 - **Modal Developers** - Roman Karhalskov & (Anna Postar with Andrii Karas)
 - **About Developer** - Hanna Kondratenko
-- **Feedback Developer** - Pavlo Koplyk &
+- **Feedback Developers** - Roman Karhalskov & Ella Tseluiko & (Pavlo Koplyk
+  with Vladyslav Fitiak)
 - **Footer Developer** - Nikita Sydorovych
 
 ---
@@ -66,15 +67,25 @@ The project consists of the following main sections:
    ```bash
    git clone https://github.com/pr-oleksandr/artists_hub_project.git
    ```
-2. Navigate to the project folder: cd artists_hub_project
-3. Install dependencies: npm install
-4. Run the project locally: npm run dev
+2. Navigate to the project folder:
+   ```bash
+   cd artists_hub_project
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Run the project locally:
+   ```bash
+   npm run dev
+   ```
 
 🔗 Links 🎨 Figma Design:
 https://www.figma.com/design/QzED11W6Vgdcv6VoXtvA3h/ArtistsHub?node-id=8246-1856&t=3PD2AyWJfN3uZRdn-0
 
 🌐 Live Page: https://pr-oleksandr.github.io/artists_hub_project/
 
-ℹ️ Additional Information This project was developed as a team-based educational
-project with a focus on collaboration, clean code structure, and modern frontend
-development practices.
+> ℹ️ **Additional Information**  
+> This project was developed as a team-based educational project with a focus on
+> collaboration, clean code structure, and modern frontend development
+> practices.
