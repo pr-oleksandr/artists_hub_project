@@ -25,6 +25,8 @@ const sortList = document.querySelector('.sort-list');
 
 const searchInput = document.querySelector('.search-input');
 const searchBtn = document.querySelector('.search-btn');
+const mainDropdownBtn = document.querySelector('.main-dropdown-btn');
+const filtersContainer = document.querySelector('.filters-container');
 
 async function fetchGenres() {
   const { data } = await axios.get('/genres');
@@ -42,6 +44,10 @@ async function loadGenres() {
 }
 
 loadGenres();
+
+mainDropdownBtn.addEventListener('click', e => {
+  filtersContainer.classList.toggle('is-open');
+});
 
 allDropdowns.forEach(crntDropdown => {
   const openButton = crntDropdown.querySelector('.dropdown-btn');
