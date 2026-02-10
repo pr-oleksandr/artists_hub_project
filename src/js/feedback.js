@@ -54,7 +54,7 @@ function initRatings() {
       readOnly: true,
       score: ratingValue,
       number: 5,
-      path: '../public/raty-images',
+      path: 'raty-images/',
       starType: 'img',
     });
 
