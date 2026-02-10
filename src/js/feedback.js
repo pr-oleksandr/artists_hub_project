@@ -54,8 +54,8 @@ function initRatings() {
       readOnly: true,
       score: ratingValue,
       number: 5,
+      path: '../public/raty-images',
       starType: 'img',
-      path: '/raty-images/',
     });
 
     ratyInstance.init();
@@ -70,7 +70,6 @@ function initSwiper() {
       el: '.swiper-pagination',
       dynamicBullets: true,
     },
-    loop: true,
     slidesPerView: 1,
     spaceBetween: 20,
     navigation: {
