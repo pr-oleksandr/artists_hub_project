@@ -48,6 +48,7 @@
   align-content: center;
   align-items: center;
 }
+
 .header__logo-white {
   display: none;
 
@@ -90,7 +91,7 @@
 }
 
 .burger__icon-wrapper {
-  width: 24px; 
+  width: 24px;
   height: 24px;
   display: flex;
   align-items: center;
@@ -103,6 +104,7 @@
   &:hover .burger__icon-wrapper {
     background-color: rgba(255, 255, 255, 0.12);
   }
+
   &:active .burger__icon-wrapper {
     background-color: rgba(255, 255, 255, 0.06);
   }
@@ -126,6 +128,7 @@
   &:hover .mobile-menu__icon-wrapper {
     background-color: rgba(255, 255, 255, 0.12);
   }
+
   &:active .mobile-menu__icon-wrapper {
     background-color: rgba(255, 255, 255, 0.06);
   }
@@ -195,6 +198,7 @@
     display: none;
   }
 }
+
 .mobile-menu__list {
   display: flex;
   flex-direction: column;
@@ -205,7 +209,7 @@
   width: 109px;
   display: inline-flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   text-align: center;
 
   font-size: 26px;
@@ -234,19 +238,27 @@
   flex-direction: row;
   gap: 32px;
 }
+
 .nav__link {
   display: inline-flex;
-align-items: center;
-justify-content: center;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  
-height: 27px;
+
+  height: 27px;
   transition: opacity 200ms ease-in-out;
 
   &:hover {
     opacity: 0.6;
   }
+
   &:active {
     opacity: 0.2;
   }
+}
+
+/* лого стайл */
+.SVG-icon-purple {
+  fill: rgba(118, 65, 145, 1);
+
 }

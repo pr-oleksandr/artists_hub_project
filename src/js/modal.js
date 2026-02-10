@@ -49,7 +49,10 @@ function renderArtistModal(artist, albums) {
   modal.innerHTML = `
         <div class="modal-content">
             <span class="modal-close-btn-wraper">
-            <button type="button" class="modal-close-btn" aria-label="Close"> <img src="/img/close-icon.svg" alt="Close menu" class="close-modal-btn"></button> 
+            <button type="button" class="modal-close-btn" aria-label="Close"> <svg class="SVG-icon"
+              width="24" height="16">
+              <use href=" /img/icon-sprite.svg#icon-clouse"></use>
+            </svg></button>
             </span>
             <h2 class="m-a-name">${artist.strArtist}</h2>
             <div class="modal-wraper">
@@ -87,27 +90,30 @@ function renderArtistModal(artist, albums) {
              <p class="m-a-albums-topic">Albums</p>
             <ul class="m-a-albums">
             ${albums
-              .map(
-                album => `
+      .map(
+        album => `
                 <li class="m-a-album-item">
                 <span class="m-a-album-name">${album.strAlbum}</span>
                 <ul class="m-a-track-names">
                    <div class="info-container"><p class="m-a-track-title">Track</p><p class="m-a-time-title">Time</p><p class="m-a-link-title">Link</p></div>
                 ${album.tracks
-                  .map(
-                    track => `
+            .map(
+              track => `
                  
                         <div class="m-a-track-row">
                             <span class="m-a-track-name">${track.strTrack}</span>
                             <span class="m-a-track-duration">${formattedDuration(track.intDuration)}</span>
-                            <a class="m-a-track-link" href="${track.strTrackThumb || '#'}"  target="_blank">Y</a>
+                            <a class="m-a-track-link" href="${track.strTrackThumb || '#'}"  target="_blank"><svg class="SVG-icon"
+              width="24" height="16">
+              <use href=" /img/icon-sprite.svg#icon-youtube"></use>
+            </svg></a>
                         </div>`
-                  )
-                  .join('')}
+            )
+            .join('')}
                 </ul>
                 </li>`
-              )
-              .join('')}
+      )
+      .join('')}
             </ul>
          </div>
     `;
