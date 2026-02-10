@@ -67,7 +67,7 @@ genreList.addEventListener('click', e => {
 sortList.addEventListener('click', e => {
   const value = e.target.dataset.value;
 
-  filters.sort = value;
+  filters.sortName = value;
   currentPage = 1;
 
   closeDropdowns();
