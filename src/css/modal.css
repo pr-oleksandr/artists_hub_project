@@ -9,7 +9,6 @@
   }
 }
 
-
 .m-a-img {
   min-width: 272px;
   height: 167.21px;
@@ -194,12 +193,7 @@
 .m-a-track-row:nth-child(odd) {
   background-color: rgba(255, 255, 255, 0.04);
 }
-.m-a-track-title {
-}
-.m-a-time-title {
-}
-.m-a-link-title {
-}
+
 .m-a-track-name {
   padding-left: 12px;
   padding-right: 16px;
@@ -287,4 +281,3 @@
   width: 14.06px;
   height: 14.06px;
 }
-
