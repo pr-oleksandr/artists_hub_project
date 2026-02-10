@@ -135,3 +135,9 @@ footer {
 
     }
 }
+
+/* лого стайл */
+.SVG-icon-purple {
+    fill: rgba(118, 65, 145, 1);
+
+}
