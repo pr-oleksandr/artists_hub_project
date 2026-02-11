@@ -11,12 +11,12 @@ async function openFeedbackModal() {
   leaveFeedbackBtn.disabled = true;
   const modal = createModal('feedback');
   document.body.appendChild(modal);
-  setupModalCloseHandlers(modal, () => {
-    leaveFeedbackBtn.disabled = false;
-  });
 
   try {
     renderModalContent(modal);
+    setupModalCloseHandlers(modal, () => {
+      leaveFeedbackBtn.disabled = false;
+    });
   } catch (error) {
     console.error('Error opening feedback modal:', error);
     iziToast.error({
@@ -31,8 +31,8 @@ function renderModalContent(modal) {
   const content = modal.querySelector('.feedback-modal-content');
   content.innerHTML = `
           <form class="feedback-form">
-          <span class="modal-close-btn-wraper">
-            <button type="button" class="modal-close-btn" aria-label="Close"> <img src="/img/close-icon.svg" alt="Close menu" class="close-modal-btn"></button> 
+          <span class="fb-modal-close-btn-wraper">
+            <button type="button" class="fb-modal-close-btn" aria-label="Close"> <img src="/img/close-icon.svg" alt="Close menu" class="close-modal-btn"></button> 
         </span>
               <h2 class="form-title">Submit Feedback</h2>
               
@@ -109,8 +109,13 @@ function setupFormValidation(form, modal) {
         message: 'Your feedback has been submitted!',
       });
 
-      // Закрыть модалку после успешной отправки
       modal.remove();
+      leaveFeedbackBtn.disabled = false;
+
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
     } catch (error) {
       console.error(
         'Full error:',

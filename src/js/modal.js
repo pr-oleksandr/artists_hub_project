@@ -81,6 +81,7 @@ function hideGlobalLoader() {
 
 export function setupModalCloseHandlers(modal, onClose) {
   const closeBtn = modal.querySelector('.modal-close-btn');
+  const fbCloseBtn = modal.querySelector('.fb-modal-close-btn');
 
   function closeModal() {
     modal.remove();
@@ -97,7 +98,12 @@ export function setupModalCloseHandlers(modal, onClose) {
     modal.removeEventListener('click', closeOnBackdropClick);
   }
 
-  closeBtn.addEventListener('click', closeModal);
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+  if (fbCloseBtn) {
+    fbCloseBtn.addEventListener('click', closeModal);
+  }
 
   const closeOnEsc = event => {
     if (event.key === 'Escape') {
@@ -127,15 +133,15 @@ function renderArtistContent(modal, artist, albums) {
             <h2 class="m-a-name">${artist.strArtist}</h2>
             <div class="modal-wraper">
             <img src="${artist.strArtistThumb}" alt="${
-    artist.strArtist
-  }" class="m-a-img" loading="lazy">
+              artist.strArtist
+            }" class="m-a-img" loading="lazy">
             <div class="desc-container">
             <div class="info-wraper">
                 <div class="desc-box">
                     <p class="m-a-topic">Years active</p>
                     <p class="m-a-info">${artist.intFormedYear} - ${
-    artist.intDiedYear || 'Present'
-  }</p>
+                      artist.intDiedYear || 'Present'
+                    }</p>
                 </div>
                 <div class="desc-box">
                     <p class="m-a-topic">Sex</p>
@@ -186,13 +192,13 @@ function renderArtistContent(modal, artist, albums) {
                             <a class="m-a-track-link" href="${
                               track.movie ? track.movie : '#'
                             }"  target="_blank">${
-                      track.movie
-                        ? `<svg class="SVG-icon"
+                              track.movie
+                                ? `<svg class="SVG-icon"
               width="24" height="16">
               <use href="${sprite}#icon-youtube"></use>
             </svg>`
-                        : ''
-                    } </a>
+                                : ''
+                            } </a>
                         </div>`
                   )
                   .join('')}
