@@ -11,7 +11,7 @@ import{a as i,i as c,R as $}from"./assets/vendor-CaGxMn-M.js";(function(){const 
             <span class="modal-close-btn-wraper">
             <button type="button" class="modal-close-btn" aria-label="Close"> <svg class="SVG-icon"
               width="24" height="16">
-              <use href="${p}#icon-clouse"></use>
+              <use href="${p}#icon-close"></use>
             </svg></button>
             </span>
             <h2 class="m-a-name">${t.strArtist}</h2>
