@@ -1,13 +1,15 @@
 import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
 import { openArtistModal } from './modal.js';
 import { showLoader, hideLoader } from './loader.js';
 import sprite from '../img/icon-sprite.svg';
 axios.defaults.baseURL = 'https://sound-wave.b.goit.study/api';
 
 const artistsList = document.querySelector('.artists-list');
-const loadMoreBtn = document.querySelector('.load-more-btn');
+// const loadMoreBtn = document.querySelector('.load-more-btn');
 let currentPage = 1;
 const limit = 8;
 const filters = {
@@ -83,6 +85,7 @@ function closeDropdowns() {
 
 function applySearch() {
   filters.name = searchInput.value.trim() || null;
+  pagination.movePageTo(1);
   currentPage = 1;
   loadArtists();
 }
@@ -107,11 +110,64 @@ function resetSearch() {
 resetBtn.addEventListener('click', resetSearch);
 
 loadArtists();
+
 // пагинация
-loadMoreBtn.addEventListener('click', () => {
-  currentPage += 1;
+const container = document.getElementById('tui-pagination-container');
+
+const options = {
+  totalItems: 110,
+  itemsPerPage: limit,
+  visiblePages: 5,
+  page: 1,
+  template: {
+    // page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+    // currentPage:
+    //   '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+    // moveButton:
+    //   '<a href="#" class="tui-page-btn tui-{{type}}">' +
+    //   '<svg class="icon"><use href="' +
+    //   sprite +
+    //   '#icon-arrow-{{type}}"></use></svg>' +
+    //   '</a>',
+    // disabledMoveButton:
+    //   '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+    //   '<svg class="icon"><use href="' +
+    //   sprite +
+    //   '#icon-arrow-{{type}}"></use></svg>' +
+    //   '</span>',
+    // moreButton:
+    //   '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+    //   '<span class="tui-ico-ellip">...</span>' +
+    //   '</a>',
+    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+    currentPage:
+      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+    moveButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '</a>',
+    disabledMoveButton:
+      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '</span>',
+    moreButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
+      '</a>',
+  },
+};
+
+const pagination = new Pagination(container, options);
+
+pagination.on('afterMove', event => {
+  currentPage = event.page;
   loadArtists();
 });
+// old pagination
+// loadMoreBtn.addEventListener('click', () => {
+//   currentPage += 1;
+//   loadArtists();
+// });
 // модалка
 artistsList.addEventListener('click', function (modalParameter) {
   const btn = modalParameter.target.closest('.learn-more-btn');
@@ -186,7 +242,7 @@ async function loadArtists() {
   try {
     showLoader(); // Показуємо лоадер перед початком завантаження даних
 
-    loadMoreBtn.classList.add('is-hidden'); //Ховаємо поки поки йде завантаження нових
+    // loadMoreBtn.classList.add('is-hidden'); //Ховаємо поки поки йде завантаження нових
 
     const data = await fetchArtists(currentPage);
 
@@ -207,22 +263,21 @@ async function loadArtists() {
       </li> `;
       const errResetBtn = document.querySelector('.err-reset-btn');
       errResetBtn.addEventListener('click', resetSearch);
+      container.classList.add('is-hidden');
       return;
     }
-    renderArtists(data.artists, currentPage > 1);
 
-    // Ховаємо лодер колидосягли останньої сторінки
-    if (data.page >= data.totalPages) {
-      loadMoreBtn.classList.add('is-hidden');
-      if (currentPage > 1) {
-        iziToast.info({
-          position: 'topRight',
-          message: 'Ouch! That is all, folks! No more artists to show.',
-        });
-      }
-      // Показуємо лодер якщо є сторінки
+    container.classList.remove('is-hidden');
+    renderArtists(data.artists, false);
+
+    // ресетаю пагинацию
+    pagination.reset(data.totalArtists);
+    pagination.movePageTo(currentPage);
+
+    if (data.totalArtists <= limit) {
+      container.classList.add('is-hidden');
     } else {
-      loadMoreBtn.classList.remove('is-hidden');
+      container.classList.remove('is-hidden');
     }
   } catch (error) {
     iziToast.error({
