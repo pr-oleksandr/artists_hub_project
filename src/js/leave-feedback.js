@@ -109,8 +109,13 @@ function setupFormValidation(form, modal) {
         message: 'Your feedback has been submitted!',
       });
 
-      // Закрыть модалку после успешной отправки
       modal.remove();
+      leaveFeedbackBtn.disabled = false;
+
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
     } catch (error) {
       console.error(
         'Full error:',
