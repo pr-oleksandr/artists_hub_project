@@ -11,12 +11,12 @@ async function openFeedbackModal() {
   leaveFeedbackBtn.disabled = true;
   const modal = createModal('feedback');
   document.body.appendChild(modal);
-  setupModalCloseHandlers(modal, () => {
-    leaveFeedbackBtn.disabled = false;
-  });
 
   try {
     renderModalContent(modal);
+    setupModalCloseHandlers(modal, () => {
+      leaveFeedbackBtn.disabled = false;
+    });
   } catch (error) {
     console.error('Error opening feedback modal:', error);
     iziToast.error({
@@ -31,8 +31,8 @@ function renderModalContent(modal) {
   const content = modal.querySelector('.feedback-modal-content');
   content.innerHTML = `
           <form class="feedback-form">
-          <span class="modal-close-btn-wraper">
-            <button type="button" class="modal-close-btn" aria-label="Close"> <img src="/img/close-icon.svg" alt="Close menu" class="close-modal-btn"></button> 
+          <span class="fb-modal-close-btn-wraper">
+            <button type="button" class="fb-modal-close-btn" aria-label="Close"> <img src="/img/close-icon.svg" alt="Close menu" class="close-modal-btn"></button> 
         </span>
               <h2 class="form-title">Submit Feedback</h2>
               
