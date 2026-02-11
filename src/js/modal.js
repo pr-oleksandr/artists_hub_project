@@ -20,7 +20,7 @@ export async function openArtistModal(artistId) {
     return;
   }
 
-  showGlobalLoader(); // показываем глобальный лоадер
+  showGlobalLoader();
   try {
     const response = await axios.get(`/artists/${artistId}`);
     const albumsResponse = await axios.get(`/artists/${artistId}/albums`);
@@ -44,10 +44,15 @@ export async function openArtistModal(artistId) {
 export function createModal(modalAdress) {
   const modal = document.createElement('div');
   modal.className = `${modalAdress}-modal`;
+
+  const scrollY = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollY}px`;
+
   modal.innerHTML = `
     <div class="${modalAdress}-modal-content">
     <span class="modal-close-btn-wraper">
-            <button type="button" class="modal-close-btn" aria-label="Close"> <svg class="SVG-icon"
+            <button type="button" class="modal-close-btn" aria-label="Close"><svg class="SVG-icon"
               width="24" height="16">
               <use href="${sprite}#icon-clouse"></use>
             </svg></button>
@@ -79,8 +84,14 @@ export function setupModalCloseHandlers(modal, onClose) {
 
   function closeModal() {
     modal.remove();
+
+    const scrollY = document.body.style.top;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    window.scrollTo(0, parseInt(scrollY || '0') * -1);
+
     if (typeof onClose === 'function') {
-      onClose(); // включаем кнопку обратно
+      onClose();
     }
     document.removeEventListener('keydown', closeOnEsc);
     modal.removeEventListener('click', closeOnBackdropClick);
@@ -173,11 +184,15 @@ function renderArtistContent(modal, artist, albums) {
                               track.intDuration
                             )}</span>
                             <a class="m-a-track-link" href="${
-                              track.strTrackThumb || '#'
-                            }"  target="_blank"><svg class="SVG-icon"
+                              track.movie ? track.movie : '#'
+                            }"  target="_blank">${
+                      track.movie
+                        ? `<svg class="SVG-icon"
               width="24" height="16">
               <use href="${sprite}#icon-youtube"></use>
-            </svg></a>
+            </svg>`
+                        : ''
+                    } </a>
                         </div>`
                   )
                   .join('')}
