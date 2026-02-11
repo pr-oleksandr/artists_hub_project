@@ -2,7 +2,11 @@ import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import Raty from 'raty-js/src/raty.js';
-import { setupModalCloseHandlers, createModal } from './modal.js';
+import {
+  setupModalCloseHandlers,
+  createModal,
+  unlockBodyScroll,
+} from './modal.js';
 
 const leaveFeedbackBtn = document.querySelector('.leave-feedback-btn');
 axios.defaults.baseURL = 'https://sound-wave.b.goit.study/api';
@@ -112,10 +116,7 @@ function setupFormValidation(form, modal) {
       modal.remove();
       leaveFeedbackBtn.disabled = false;
 
-      const scrollY = document.body.style.top;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      unlockBodyScroll();
     } catch (error) {
       console.error(
         'Full error:',

@@ -5,6 +5,26 @@ import sprite from '../img/icon-sprite.svg';
 axios.defaults.baseURL = 'https://sound-wave.b.goit.study/api';
 const loader = document.querySelector('.loader');
 
+let scrollY = 0;
+
+function lockBodyScroll() {
+  scrollY = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollY}px`;
+  document.body.style.left = '0';
+  document.body.style.right = '0';
+  document.body.style.width = '100%';
+}
+
+export function unlockBodyScroll() {
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.left = '';
+  document.body.style.right = '';
+  document.body.style.width = '';
+  window.scrollTo(0, scrollY);
+}
+
 const formattedDuration = duration => {
   const minutes = Math.floor(duration / 60000);
   const seconds = Math.floor((duration % 60000) / 1000);
@@ -45,9 +65,7 @@ export function createModal(modalAdress) {
   const modal = document.createElement('div');
   modal.className = `${modalAdress}-modal`;
 
-  const scrollY = window.scrollY;
-  document.body.style.position = 'fixed';
-  document.body.style.top = `-${scrollY}px`;
+  lockBodyScroll();
 
   modal.innerHTML = `
     <div class="${modalAdress}-modal-content">
@@ -85,11 +103,7 @@ export function setupModalCloseHandlers(modal, onClose) {
 
   function closeModal() {
     modal.remove();
-
-    const scrollY = document.body.style.top;
-    document.body.style.position = '';
-    document.body.style.top = '';
-    window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    unlockBodyScroll();
 
     if (typeof onClose === 'function') {
       onClose();
