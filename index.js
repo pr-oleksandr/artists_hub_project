@@ -8,7 +8,7 @@ import{a as c,i,R as y}from"./assets/vendor-CaGxMn-M.js";(function(){const t=doc
             <span class="modal-close-btn-wraper">
             <button type="button" class="modal-close-btn" aria-label="Close"> <svg class="SVG-icon"
               width="24" height="16">
-              <use href=" /img/icon-sprite.svg#icon-clouse"></use>
+              <use href="/img/icon-sprite.svg#icon-clouse"></use>
             </svg></button>
             </span>
             <h2 class="m-a-name">${t.strArtist}</h2>
@@ -58,7 +58,7 @@ import{a as c,i,R as y}from"./assets/vendor-CaGxMn-M.js";(function(){const t=doc
                             <span class="m-a-track-duration">${T(a.intDuration)}</span>
                             <a class="m-a-track-link" href="${a.strTrackThumb||"#"}"  target="_blank"><svg class="SVG-icon"
               width="24" height="16">
-              <use href=" /img/icon-sprite.svg#icon-youtube"></use>
+              <use href="/img/icon-sprite.svg#icon-youtube"></use>
             </svg></a>
                         </div>`).join("")}
                 </ul>
@@ -72,7 +72,7 @@ import{a as c,i,R as y}from"./assets/vendor-CaGxMn-M.js";(function(){const t=doc
                 <h3 >${s}</h3>
                 <p >${j(f,20)}</p> 
                 <button type="button" class="learn-more-btn" data-id="${r}">Learn more <svg class="SVG-icon" width="24" height="16">
-    <use href=" /img/icon-sprite.svg#icon-icon-lr-more"></use>
+    <use href="/img/icon-sprite.svg#icon-icon-lr-more"></use>
   </svg></button>
             </div>
         </li>
