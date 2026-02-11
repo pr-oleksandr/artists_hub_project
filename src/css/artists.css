@@ -192,63 +192,58 @@
   gap: 16px;
   flex-direction: column;
 
-  @media screen and (min-width:768px) {}
+  @media screen and (min-width: 768px) {
+  }
 
-  @media screen and (min-width:1440px) {
+  @media screen and (min-width: 1440px) {
     flex-direction: row;
     align-items: flex-start;
-
   }
 }
-
 
 .filters-container {
   width: 100%;
   position: relative;
 
-  @media screen and (min-width:768px) {
+  @media screen and (min-width: 768px) {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  @media screen and (min-width:1440px) {
+  @media screen and (min-width: 1440px) {
     width: 304px;
     flex-shrink: 0;
   }
 
   p {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 18px;
     line-height: 150%;
     color: #fff;
 
-    @media screen and (min-width:1440px) {
+    @media screen and (min-width: 1440px) {
       display: inline;
     }
-
   }
 }
-
 
 .reset-btn,
 .filters-main-menu {
   display: none;
 
+  @media screen and (min-width: 768px) {
+  }
 
-  @media screen and (min-width:768px) {}
-
-  @media screen and (min-width:1440px) {
+  @media screen and (min-width: 1440px) {
     display: flex;
   }
 }
 
-
 .filters-container.is-open {
   .filters-main-menu {
     display: flex;
-
   }
 
   .main-dropdown-btn img {
@@ -276,18 +271,15 @@
     transition: transform 100ms ease;
   }
 
-  @media screen and (min-width:768px) {
+  @media screen and (min-width: 768px) {
     margin-top: 0;
     width: 233px;
   }
 
-  @media screen and (min-width:1440px) {
+  @media screen and (min-width: 1440px) {
     display: none;
   }
-
 }
-
-
 
 .filters-main-menu {
   position: absolute;
@@ -295,24 +287,21 @@
   right: 0;
   flex-direction: column;
   width: 100%;
-  background: #1e1c1f;
+  background-color: #1e1c1f;
   border-radius: 12px;
   gap: 12px;
   padding: 12px;
 
-  @media screen and (min-width:768px) {
+  @media screen and (min-width: 768px) {
     width: 304px;
   }
 
-  @media screen and (min-width:1440px) {
+  @media screen and (min-width: 1440px) {
     width: 100%;
     padding-left: 0;
     padding-right: 0;
     background: none;
-
-
   }
-
 }
 
 .search-box {
@@ -330,7 +319,7 @@
   .search-input {
     width: 100%;
     border: none;
-    font-family: "IBM Plex Sans", sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 150%;
@@ -342,7 +331,7 @@
 }
 
 .reset-btn {
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 150%;
@@ -356,9 +345,7 @@
   padding: 24px;
   max-height: 400px;
   overflow-y: auto;
-
 }
-
 
 .dropdown-btn,
 .reset-btn,
@@ -379,29 +366,24 @@
   padding-inline: 12px;
 }
 
-
 .dropdown.open .dropdown-list {
   display: flex;
   flex-direction: column;
 }
 
-
 .dropdown-list li {
   color: #fff;
   cursor: pointer;
-
 }
-
 
 .dropdown-list li:not(:last-child) {
   margin-bottom: 16px;
 }
 
-
 .dropdown {
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
-  background: #1e1c1f;
+  background-color: #1e1c1f;
   display: flex;
   flex-direction: column;
 
@@ -409,7 +391,7 @@
     transition: transform 100ms ease;
   }
 
-  @media screen and (min-width:1440px) {
+  @media screen and (min-width: 1440px) {
     background: none;
   }
 }
