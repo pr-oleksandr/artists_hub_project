@@ -51,11 +51,14 @@ The project consists of the following main sections:
 - **Scrum Master** - Hanna Kondratenko
 - **Header Developer** - Andrii Karas
 - **Hero Developer** - Ella Tseluiko
-- **Artists Developers** - Ivan Boltenkov & (Anna Postar with Nikita Sydorovych)
-- **Modal Developers** - Roman Karhalskov & (Anna Postar with Andrii Karas)
+- **Artists Developers** - Ivan Boltenkov & Roman Karhalskov & (Anna Postar with
+  Nikita Sydorovych)
+- **Sorted & searching functionality** - Nikita Sydorovych & Roman Karhalskov
+- **Artists Modal Developers** - Roman Karhalskov & (Anna Postar with Andrii
+  Karas)
 - **About Developer** - Hanna Kondratenko
-- **Feedback Developers** - Roman Karhalskov & Ella Tseluiko & (Pavlo Koplyk
-  with Vladyslav Fitiak)
+- **Feedback Developers** - Roman Karhalskov & Ella Tseluiko & (Pavlo Koplyk)
+- **Feedback form Developers** - Roman Karhalskov & Ella Tseluiko
 - **Footer Developer** - Nikita Sydorovych
 
 ---
