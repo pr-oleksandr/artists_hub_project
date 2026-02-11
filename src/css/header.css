@@ -43,6 +43,7 @@
   align-content: center;
   align-items: center;
 }
+
 .header__logo-white {
   display: none;
 
@@ -98,6 +99,7 @@
   &:hover .burger__icon-wrapper {
     background-color: rgba(255, 255, 255, 0.12);
   }
+
   &:active .burger__icon-wrapper {
     background-color: rgba(255, 255, 255, 0.06);
   }
@@ -121,6 +123,7 @@
   &:hover .mobile-menu__icon-wrapper {
     background-color: rgba(255, 255, 255, 0.12);
   }
+
   &:active .mobile-menu__icon-wrapper {
     background-color: rgba(255, 255, 255, 0.06);
   }
@@ -186,6 +189,7 @@
     display: none;
   }
 }
+
 .mobile-menu__list {
   display: flex;
   flex-direction: column;
@@ -225,6 +229,7 @@
   flex-direction: row;
   gap: 32px;
 }
+
 .nav__link {
   display: inline-flex;
   align-items: center;
@@ -237,7 +242,14 @@
   &:hover {
     opacity: 0.6;
   }
+
   &:active {
     opacity: 0.2;
   }
+}
+
+/* лого стайл */
+.SVG-icon-purple {
+  fill: rgba(118, 65, 145, 1);
+
 }

@@ -12,6 +12,10 @@ body {
 
   background: #23132b;
   position: relative;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 32px;
+  }
 }
 
 .top-shadow,
@@ -37,7 +41,7 @@ body {
 .hero__content {
   display: flex;
   flex-direction: column;
-  
+
   margin-bottom: 64px;
 }
 
@@ -48,6 +52,10 @@ body {
   line-height: 1.1;
   letter-spacing: -0.01em;
   margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 24px;
+  }
 }
 
 .hero__text {
@@ -55,6 +63,10 @@ body {
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 24px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+  }
 }
 
 .hero__button-container {
@@ -66,10 +78,8 @@ body {
   justify-content: center;
   align-items: center;
   gap: 12px;
-  box-shadow:
-    0 1px 2px 0 rgba(6, 3, 7, 0.05),
-    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
-    inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15),
     inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
     inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
   background: #764191;
@@ -105,15 +115,9 @@ body {
     url('../img/hero/Content-mob-1x.png') 1x,
     url('../img/hero/Content-mob-2x.png') 2x
   );
-
 }
 
-
 @media screen and (min-width: 768px) {
-  .top-shadow {
-    height: 125px;
-  }
-
   .bottom-shadow {
     height: 137px;
   }
@@ -126,12 +130,12 @@ body {
   .hero__text {
     font-size: 20px;
   }
-  
+
   .hero__btn {
     box-sizing: border-box;
     max-width: 246px;
   }
- 
+
   .hero__gallery {
     width: 704px;
     min-height: 632px;
@@ -154,22 +158,22 @@ body {
     justify-content: space-between;
     align-items: center;
   }
-  
+
   .hero__content {
-    width: 640px;
-    padding-right: 80px;
+    min-width: 640px;
   }
-  
+
   .hero__title {
     font-size: 84px;
   }
-  
+
   .hero__btn {
     max-width: 206px;
   }
 
   .hero__gallery {
     min-height: 100vh;
+    max-width: 641px;
 
     background-image: image-set(
       url('../img/hero/Content-desk-1x.png') 1x,

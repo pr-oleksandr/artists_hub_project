@@ -1,17 +1,148 @@
-.swiper {
-  width: 100%;
-  height: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
+
+.feedback {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+@media screen and (min-width: 1440px) {
+  .feedback {
+    padding-top: 112px;
+    padding-bottom: 112px;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .swiper-slide {
-  text-align: center;
-  font-size: 18px;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.feedback-card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 1440px) {
+  .feedback-card {
+    margin-bottom: 75px;
+  }
 }
 
 .rating {
-  margin-bottom: 10px;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+  margin-top: 59px;
+}
+
+.rating img {
+  display: block;
+}
+
+.feedback-message {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 32px;
+}
+@media screen and (min-width: 768px) {
+  .feedback-message {
+    width: 518px;
+    font-size: 26px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .feedback-message {
+    width: 866px;
+    font-size: 32px;
+  }
+}
+
+.feedback-author {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+}
+
+@media screen and (max-width: 767px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  opacity: 0.6;
+}
+
+.swiper-button-prev:disabled,
+.swiper-button-next:disabled {
+  opacity: 0.2;
+}
+
+.swiper-button-prev:disabled,
+.swiper-button-next:disabled {
+  background: #1e1c1f;
+}
+
+.swiper-pagination-bullet {
+  background: #fff;
+}
+
+.swiper-pagination-bullet-active-main {
+  background: #fff;
+}
+
+@media screen and (min-width: 1440px) {
+  .swiper {
+    padding-bottom: 32px;
+  }
+
+  .swiper-slide {
+    align-items: flex-start;
+  }
+
+  .swiper-pagination {
+    bottom: 0;
+  }
+}
+
+.feedback-btn__container {
+  display: flex;
+  align-items: center;
 }

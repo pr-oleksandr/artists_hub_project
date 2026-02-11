@@ -1,6 +1,7 @@
 import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import sprite from '../img/icon-sprite.svg';
 axios.defaults.baseURL = 'https://sound-wave.b.goit.study/api';
 const loader = document.querySelector('.loader');
 
@@ -19,16 +20,15 @@ export async function openArtistModal(artistId) {
     return;
   }
 
-  const modal = createLoadingModal();
-  document.body.appendChild(modal);
-
-  setupModalCloseHandlers(modal);
-
+  showGlobalLoader(); // показываем глобальный лоадер
   try {
     const response = await axios.get(`/artists/${artistId}`);
     const albumsResponse = await axios.get(`/artists/${artistId}/albums`);
     const albums = albumsResponse.data.albumsList || [];
     const artist = response.data;
+    const modal = createModal('artists');
+    document.body.appendChild(modal);
+    setupModalCloseHandlers(modal);
     renderArtistContent(modal, artist, albums);
   } catch (error) {
     console.error('Error fetching artist details:', error);
@@ -36,68 +36,95 @@ export async function openArtistModal(artistId) {
       title: 'Error',
       message: 'Failed to load artist details.',
     });
+  } finally {
+    hideGlobalLoader();
   }
 }
 
-function createLoadingModal() {
+export function createModal(modalAdress) {
   const modal = document.createElement('div');
-  modal.className = 'artist-modal';
+  modal.className = `${modalAdress}-modal`;
   modal.innerHTML = `
-    <div class="modal-content">
+    <div class="${modalAdress}-modal-content">
     <span class="modal-close-btn-wraper">
-            <button type="button" class="modal-close-btn" aria-label="Close"> <img src="/img/close-icon.svg" alt="Close menu" class="close-modal-btn"></button> 
+            <button type="button" class="modal-close-btn" aria-label="Close"> <svg class="SVG-icon"
+              width="24" height="16">
+              <use href="${sprite}#icon-clouse"></use>
+            </svg></button>
             </span>
-      <div class="loader"></div>
     </div>
   `;
   return modal;
 }
 
-function setupModalCloseHandlers(modal) {
+function showGlobalLoader() {
+  let loader = document.querySelector('.global-loader');
+  if (!loader) {
+    loader = document.createElement('div');
+    loader.className = 'global-loader';
+    loader.innerHTML = `<div class="loader"></div>`;
+    document.body.appendChild(loader);
+  }
+  loader.classList.remove('hidden');
+}
+function hideGlobalLoader() {
+  const loader = document.querySelector('.global-loader');
+  if (loader) {
+    loader.classList.add('hidden');
+  }
+}
+
+export function setupModalCloseHandlers(modal, onClose) {
   const closeBtn = modal.querySelector('.modal-close-btn');
-  closeBtn.addEventListener('click', () => {
+
+  function closeModal() {
     modal.remove();
-  });
+    if (typeof onClose === 'function') {
+      onClose(); // включаем кнопку обратно
+    }
+    document.removeEventListener('keydown', closeOnEsc);
+    modal.removeEventListener('click', closeOnBackdropClick);
+  }
+
+  closeBtn.addEventListener('click', closeModal);
 
   const closeOnEsc = event => {
     if (event.key === 'Escape') {
-      modal.remove();
-      document.removeEventListener('keydown', closeOnEsc);
+      closeModal();
     }
   };
   document.addEventListener('keydown', closeOnEsc);
 
   const closeOnBackdropClick = event => {
     if (event.target === modal) {
-      modal.remove();
-      modal.removeEventListener('click', closeOnBackdropClick);
-      document.removeEventListener('keydown', closeOnEsc);
+      closeModal();
     }
   };
   modal.addEventListener('click', closeOnBackdropClick);
 }
 
 function renderArtistContent(modal, artist, albums) {
-  // const existingModalWindow = document.querySelector('.artist-modal');
-  // if (existingModalWindow) {
-  //   existingModalWindow.remove();
-  // }
-
-  const content = modal.querySelector('.modal-content');
+  const content = modal.querySelector('.artists-modal-content');
 
   content.innerHTML = `
-        <div class="modal-content">
             <span class="modal-close-btn-wraper">
-            <button type="button" class="modal-close-btn" aria-label="Close"> <img src="/img/close-icon.svg" alt="Close menu" class="close-modal-btn"></button> 
+            <button type="button" class="modal-close-btn" aria-label="Close"> <svg class="SVG-icon"
+              width="24" height="16">
+              <use href="${sprite}#icon-clouse"></use>
+            </svg></button>
             </span>
             <h2 class="m-a-name">${artist.strArtist}</h2>
             <div class="modal-wraper">
-            <img src="${artist.strArtistThumb}" alt="${artist.strArtist}" class="m-a-img" loading="lazy">
+            <img src="${artist.strArtistThumb}" alt="${
+    artist.strArtist
+  }" class="m-a-img" loading="lazy">
             <div class="desc-container">
             <div class="info-wraper">
                 <div class="desc-box">
                     <p class="m-a-topic">Years active</p>
-                    <p class="m-a-info">${artist.intFormedYear} - ${artist.intDiedYear || 'Present'}</p>
+                    <p class="m-a-info">${artist.intFormedYear} - ${
+    artist.intDiedYear || 'Present'
+  }</p>
                 </div>
                 <div class="desc-box">
                     <p class="m-a-topic">Sex</p>
@@ -119,7 +146,9 @@ function renderArtistContent(modal, artist, albums) {
                     <p class="m-a-info-biography">${artist.strBiographyEN}</p>
                 </div>
                 <div class="genres-container">
-                    <p class="m-a-genres-container">${artist.genres.map(genre => `<span class="m-a-genre">${genre}</span>`).join('')}</p>
+                    <p class="m-a-genres-container">${artist.genres
+                      .map(genre => `<span class="m-a-genre">${genre}</span>`)
+                      .join('')}</p>
                 </div>
             </div>
             </div>
@@ -137,23 +166,18 @@ function renderArtistContent(modal, artist, albums) {
                     track => `
                  
                         <div class="m-a-track-row">
-                            <span class="m-a-track-name">${track.strTrack}</span>
-                            <span class="m-a-track-duration">${formattedDuration(track.intDuration)}</span>
-                            <a class="m-a-track-link"
-                            href="${track.movie && track.movie.trim() ? track.movie : '#'}"  
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Open Youtube link">
-                            ${
-                              track.movie && track.movie.trim()
-                                ? `
-          <svg class="youtube-logo" width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.016 3.016 0 0 0 .502 6.186 31.91 31.91 0 0 0 0 12.005a31.91 31.91 0 0 0 .502 5.819 3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.016 3.016 0 0 0 2.122-2.136A31.91 31.91 0 0 0 24 12.005a31.91 31.91 0 0 0-.502-5.819zM9.75 15.566V8.434L15.75 12l-6 3.566z"/>
-          </svg>
-        `
-                                : ''
-                            }
-                            </a>
+                            <span class="m-a-track-name">${
+                              track.strTrack
+                            }</span>
+                            <span class="m-a-track-duration">${formattedDuration(
+                              track.intDuration
+                            )}</span>
+                            <a class="m-a-track-link" href="${
+                              track.strTrackThumb || '#'
+                            }"  target="_blank"><svg class="SVG-icon"
+              width="24" height="16">
+              <use href="${sprite}#icon-youtube"></use>
+            </svg></a>
                         </div>`
                   )
                   .join('')}
@@ -162,8 +186,6 @@ function renderArtistContent(modal, artist, albums) {
               )
               .join('')}
             </ul>
-         </div>
     `;
   setupModalCloseHandlers(modal);
-  // document.body.appendChild(modal);
 }

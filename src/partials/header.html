@@ -2,16 +2,15 @@
   <header class="header">
     <div class="container header__container">
       <!-- logo -->
+
       <div class="header__logo header__logo-white">
         <a
           href="index.html"
           aria-label="Go to homepage"
           class="header__logo-link"
-          ><img
-            src="/img/logo-white.svg"
-            alt="ArtistsHub logo"
-            class="header__logo-image"
-        /></a>
+          ><svg class="SVG-icon" width="107" height="31">
+            <use href="/img/icon-sprite.svg#icon-logo-text"></use></svg
+        ></a>
       </div>
 
       <div class="header__logo header__logo-purple">
@@ -19,11 +18,9 @@
           href="index.html"
           aria-label="Go to homepage"
           class="header__logo-link"
-          ><img
-            src="/img/logo-purple.svg"
-            alt="ArtistsHub logo"
-            class="header__logo-image"
-        /></a>
+          ><svg class="SVG-icon-purple" width="107" height="31">
+            <use href="/img/icon-sprite.svg#icon-logo-text"></use></svg
+        ></a>
       </div>
       <!-- Mobile menu toggle-->
       <button
@@ -32,11 +29,9 @@
         aria-label="mobile-menu"
       >
         <span class="burger__icon-wrapper">
-          <img
-            src="/img/burger-menu.svg"
-            alt="Open menu"
-            class="burger__icon"
-          />
+          <svg class="SVG-icon" width="24" height="16">
+            <use href="/img/icon-sprite.svg#icon-menu-alt-right"></use>
+          </svg>
         </span>
       </button>
 
@@ -61,7 +56,9 @@
             aria-label="Close menu"
           >
             <span class="mobile-menu__icon-wrapper">
-              <img src="/img/close-icon.svg" alt="Close menu" />
+              <svg class="SVG-icon" width="24" height="16">
+                <use href="/img/icon-sprite.svg#icon-clouse"></use>
+              </svg>
             </span>
           </button>
         </div>

@@ -3,7 +3,7 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import { openArtistModal } from './modal.js';
 import { showLoader, hideLoader } from './loader.js';
-import caretIcon from '../img/caret-right.svg';
+import sprite from '../img/icon-sprite.svg';
 axios.defaults.baseURL = 'https://sound-wave.b.goit.study/api';
 
 const artistsList = document.querySelector('.artists-list');
@@ -163,8 +163,9 @@ function renderArtists(artists, shouldAppend = false) {
                   .join('')}</ul> 
                 <h3 >${strArtist}</h3>
                 <p >${formatBio(strBiographyEN, 20)}</p> 
-                <button type="button" class="learn-more-btn" data-id="${_id}">Learn more<img src="${caretIcon}"
-        ></button>
+                <button type="button" class="learn-more-btn" data-id="${_id}">Learn more <svg class="SVG-icon" width="24" height="16">
+    <use href="${sprite}#icon-icon-lr-more"></use>
+  </svg></button>
             </div>
         </li>
     `
