@@ -114,6 +114,8 @@
   background-color: rgba(30, 28, 31, 1);
   border-radius: 16px;
   padding: 14px 11px;
+  max-height: 564px;
+  overflow: scroll;
 
   @media screen and (min-width: 767px) {
     flex: 0 0 calc(50% - 16px);
@@ -171,22 +173,22 @@
   display: grid;
   grid-template-columns:
     minmax(0, 1fr)
-    70px
-    28px;
+    61px
+    38px;
   border-radius: 8px;
   padding: 8px 0px;
 
   @media screen and (min-width: 768px) {
     grid-template-columns:
       minmax(0, 1fr)
-      84px
-      38px;
+      74px
+      48px;
   }
   @media screen and (min-width: 1440px) {
     grid-template-columns:
       minmax(0, 1fr)
-      80px
-      40px;
+      74px
+      48px;
   }
 }
 
@@ -197,7 +199,25 @@
 .m-a-track-name {
   padding-left: 12px;
   padding-right: 16px;
-  overflow: hidden;
+}
+
+.m-a-track-link {
+  display: flex;
+  align-items: center;
+  width: 27px;
+}
+
+.m-a-track-link:hover {
+  scale: 1.15;
+}
+
+.m-a-track-link:focus {
+  scale: 0.95;
+}
+
+.m-a-track-duration {
+  display: flex;
+  align-items: center;
 }
 
 .artists-modal {

@@ -63,7 +63,7 @@ function renderArtists(artists, shouldAppend = false) {
                 <h3 >${strArtist}</h3>
                 <p >${formatBio(strBiographyEN, 20)}</p> 
                 <button type="button" class="learn-more-btn" data-id="${_id}">Learn more <svg class="SVG-icon" width="24" height="16">
-    <use href=" /img/icon-sprite.svg#icon-icon-lr-more"></use>
+    <use href="/img/icon-sprite.svg#icon-icon-lr-more"></use>
   </svg></button>
             </div>
         </li>

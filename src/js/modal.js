@@ -106,17 +106,21 @@ function renderArtistContent(modal, artist, albums) {
             <span class="modal-close-btn-wraper">
             <button type="button" class="modal-close-btn" aria-label="Close"> <svg class="SVG-icon"
               width="24" height="16">
-              <use href=" /img/icon-sprite.svg#icon-clouse"></use>
+              <use href="/img/icon-sprite.svg#icon-clouse"></use>
             </svg></button>
             </span>
             <h2 class="m-a-name">${artist.strArtist}</h2>
             <div class="modal-wraper">
-            <img src="${artist.strArtistThumb}" alt="${artist.strArtist}" class="m-a-img" loading="lazy">
+            <img src="${artist.strArtistThumb}" alt="${
+    artist.strArtist
+  }" class="m-a-img" loading="lazy">
             <div class="desc-container">
             <div class="info-wraper">
                 <div class="desc-box">
                     <p class="m-a-topic">Years active</p>
-                    <p class="m-a-info">${artist.intFormedYear} - ${artist.intDiedYear || 'Present'}</p>
+                    <p class="m-a-info">${artist.intFormedYear} - ${
+    artist.intDiedYear || 'Present'
+  }</p>
                 </div>
                 <div class="desc-box">
                     <p class="m-a-topic">Sex</p>
@@ -138,37 +142,45 @@ function renderArtistContent(modal, artist, albums) {
                     <p class="m-a-info-biography">${artist.strBiographyEN}</p>
                 </div>
                 <div class="genres-container">
-                    <p class="m-a-genres-container">${artist.genres.map(genre => `<span class="m-a-genre">${genre}</span>`).join('')}</p>
+                    <p class="m-a-genres-container">${artist.genres
+                      .map(genre => `<span class="m-a-genre">${genre}</span>`)
+                      .join('')}</p>
                 </div>
             </div>
             </div>
              <p class="m-a-albums-topic">Albums</p>
             <ul class="m-a-albums">
             ${albums
-      .map(
-        album => `
+              .map(
+                album => `
                 <li class="m-a-album-item">
                 <span class="m-a-album-name">${album.strAlbum}</span>
                 <ul class="m-a-track-names">
                    <div class="info-container"><p class="m-a-track-title">Track</p><p class="m-a-time-title">Time</p><p class="m-a-link-title">Link</p></div>
                 ${album.tracks
-            .map(
-              track => `
+                  .map(
+                    track => `
                  
                         <div class="m-a-track-row">
-                            <span class="m-a-track-name">${track.strTrack}</span>
-                            <span class="m-a-track-duration">${formattedDuration(track.intDuration)}</span>
-                            <a class="m-a-track-link" href="${track.strTrackThumb || '#'}"  target="_blank"><svg class="SVG-icon"
+                            <span class="m-a-track-name">${
+                              track.strTrack
+                            }</span>
+                            <span class="m-a-track-duration">${formattedDuration(
+                              track.intDuration
+                            )}</span>
+                            <a class="m-a-track-link" href="${
+                              track.strTrackThumb || '#'
+                            }"  target="_blank"><svg class="SVG-icon"
               width="24" height="16">
-              <use href=" /img/icon-sprite.svg#icon-youtube"></use>
+              <use href="/img/icon-sprite.svg#icon-youtube"></use>
             </svg></a>
                         </div>`
-            )
-            .join('')}
+                  )
+                  .join('')}
                 </ul>
                 </li>`
-      )
-      .join('')}
+              )
+              .join('')}
             </ul>
     `;
   setupModalCloseHandlers(modal);

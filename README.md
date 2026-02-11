@@ -1,21 +1,19 @@
 # 🎵 ArtistsHub
 
-## 👥 Team
-
-**Code & Canvas**
+## 👥 Code & Canvas Team
 
 ---
 
 ## 📌 About the Project
 
-**ArtistsHub** is a platform for discovering musical artists.  
-Users can browse a list of performers and open a modal window with detailed
-information about each artist, including a description, music style, song list,
-and more. The platform also allows users to read feedback and reviews from other
-listeners.
+**ArtistsHub** is a platform for discovering musical artists. Users can explore
+a curated list of performers and access detailed information about each artist
+through a modal window, including a biography, music style, song catalog, and
+more. The platform also features user feedback and reviews, allowing listeners
+to gain insights from the community.
 
-The project aims to provide a convenient and user-friendly way to explore
-artists in one place.
+The project is designed to offer a seamless and intuitive experience for
+discovering and exploring artists in a single, convenient place.
 
 ---
 
@@ -28,8 +26,8 @@ artists in one place.
 - **Axios**
 - **IziToast**
 - **Swiper**
-- **css-star-rating**
-- **loader.css**
+- **Raty-js**
+- **///**
 
 ---
 
@@ -39,9 +37,10 @@ The project consists of the following main sections:
 
 - **Header** — site navigation
 - **Hero** — main introductory section
-- **Artists** — artists list with modal window functionality
+- **Artists** — artists list with the ability to sort and with modal window
+  functionality
 - **About** — information about the ArtistsHub mission
-- **Feedback** — users’ reviews and feedback
+- **Feedback** — users reviews and feedback
 - **Footer** — additional information and links
 
 ---
@@ -80,10 +79,14 @@ The project consists of the following main sections:
    npm run dev
    ```
 
-🔗 Links 🎨 Figma Design:
-https://www.figma.com/design/QzED11W6Vgdcv6VoXtvA3h/ArtistsHub?node-id=8246-1856&t=3PD2AyWJfN3uZRdn-0
+🔗 Links 🎨
 
-🌐 Live Page: https://pr-oleksandr.github.io/artists_hub_project/
+**Figma Design:**
+[View design](https://www.figma.com/design/QzED11W6Vgdcv6VoXtvA3h/ArtistsHub?node-id=8246-1856&t=3PD2AyWJfN3uZRdn-0)
+✨
+
+**🌐 Live Page:**
+[Open website](https://pr-oleksandr.github.io/artists_hub_project/) 🚀
 
 > ℹ️ **Additional Information**  
 > This project was developed as a team-based educational project with a focus on

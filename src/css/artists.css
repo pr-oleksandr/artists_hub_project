@@ -15,9 +15,10 @@
 .artists {
   margin: 64px 0;
 
-  @media screen and (min-width:768px) {}
+  @media screen and (min-width: 768px) {
+  }
 
-  @media screen and (min-width:1440px) {
+  @media screen and (min-width: 1440px) {
     margin: 112px 0;
   }
 }
@@ -30,7 +31,7 @@
 }
 
 .subtitle-artists-list {
-  font-family: "Epilogue", sans-serif;
+  font-family: 'Epilogue', sans-serif;
   font-weight: 700;
   font-size: 44px;
   line-height: 120%;
@@ -38,11 +39,11 @@
   max-width: 288px;
   margin-bottom: 32px;
 
-  @media screen and (min-width:768px) {
+  @media screen and (min-width: 768px) {
     max-width: 100%;
   }
 
-  @media screen and (min-width:1440px) {
+  @media screen and (min-width: 1440px) {
     font-size: 60px;
     max-width: 523px;
   }
@@ -53,16 +54,14 @@
   grid-template-columns: 1fr;
   gap: 64px;
 
-  @media screen and (min-width:768px) {
+  @media screen and (min-width: 768px) {
     gap: 32px;
   }
 
-  @media screen and (min-width:1440px) {
+  @media screen and (min-width: 1440px) {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
-
 
 .artist-item {
   transition: transform 0.3s ease;
@@ -79,7 +78,6 @@
   object-position: top;
   aspect-ratio: 640 / 393;
 }
-
 
 .artist-info {
   padding-top: 24px;
@@ -103,7 +101,7 @@
   }
 
   h3 {
-    font-family: "Epilogue", sans-serif;
+    font-family: 'Epilogue', sans-serif;
     font-size: 32px;
     line-height: 130%;
     letter-spacing: -0.01em;
@@ -117,10 +115,6 @@
     margin-bottom: 24px;
   }
 }
-
-
-
-
 
 .learn-more-btn {
   padding: 0;
@@ -138,24 +132,22 @@
   transition: transform 0.3s ease, opacity 0.3s ease;
 
   &:hover {
-    /* transform: scale(1.05); */
     opacity: 0.6;
   }
 
   &:active {
-    /* transform: scale(0.95); */
+    opacity: 0.2;
   }
 }
-
-
-
-
 
 .load-more-btn {
   border-radius: 12px;
   padding-block: 10px;
   padding-inline: 24px;
-  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
   background: #764191;
   display: flex;
   justify-content: center;
@@ -171,19 +163,21 @@
   transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 
-
-  @media screen and (min-width:768px) {
+  @media screen and (min-width: 768px) {
     max-width: 340px;
     margin-top: 64px;
   }
 
-  @media screen and (min-width:1440px) {
+  @media screen and (min-width: 1440px) {
     width: auto;
   }
 
   &:hover {
     transform: scale(1.05);
-    box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05),
+      inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+      inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
     opacity: 0.6;
   }
 
@@ -193,14 +187,6 @@
   }
 }
 
-/* тест svg */
-.learn-more-btn {
-  fill: #fff;
-
-}
-
 .SVG-icon {
   fill: #fff;
-  /* width: 16px;
-  height: 16px; */
 }
