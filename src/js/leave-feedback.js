@@ -34,11 +34,21 @@ function renderModalContent(modal) {
           <span class="modal-close-btn-wraper">
             <button type="button" class="modal-close-btn" aria-label="Close"> <img src="/img/close-icon.svg" alt="Close menu" class="close-modal-btn"></button> 
         </span>
-              <h2>Submit Feedback</h2>
-              <input type="text" id="feedback-name" placeholder="Emily">
-              <textarea id="feedback-message" placeholder="Type your message..."></textarea>
-               <div class="rating" data-rating="0"></div>
-              <button type="submit" id="submit-feedback" disabled>Submit Feedback</button>
+              <h2 class="form-title">Submit Feedback</h2>
+              
+              <div class="form-container">
+                <div class="feedback-container">
+                  <label for="feedback-name">Name</label>
+                  <input type="text" id="feedback-name" placeholder="Emily">
+                </div>
+                
+                <div class="feedback-container">
+                  <label for="feedback-message">Message</label>
+                  <textarea id="feedback-message" placeholder="Type your message..."></textarea>
+                </div>
+                <div class="rating" id="rating" data-rating="0"></div>
+                <button type="submit" id="submit-feedback" disabled>Submit</button>
+              </div>
               </form>
               `;
 
