@@ -242,6 +242,7 @@
 .filters-main-menu {
   display: none;
 
+
   @media screen and (min-width:768px) {}
 
   @media screen and (min-width:1440px) {
@@ -253,6 +254,11 @@
 .filters-container.is-open {
   .filters-main-menu {
     display: flex;
+
+  }
+
+  .main-dropdown-btn img {
+    transform: rotate(180deg);
   }
 }
 
@@ -271,6 +277,10 @@
   font-size: 18px;
   line-height: 150%;
   color: #fff;
+
+  img {
+    transition: transform 100ms ease;
+  }
 
   @media screen and (min-width:768px) {
     margin-top: 0;
@@ -305,6 +315,8 @@
     padding-left: 0;
     padding-right: 0;
     background: none;
+
+
   }
 
 }
@@ -409,7 +421,7 @@
 }
 
 .dropdown.open .dropdown-btn img {
-  transform: rotate(-180deg);
+  transform: rotate(180deg);
 }
 
 .dropdown-list::-webkit-scrollbar {
