@@ -2,9 +2,52 @@
   <div class="container">
     <h2 class="title-artist-list">Artists</h2>
     <h3 class="subtitle-artists-list">Explore Your New Favorite Artists</h3>
+    <div class="filters-wrapper">
+      <div class="filters-container">
+        <p>Filters</p>
+        <button class="reset-btn" type="button">Reset</button>
+        <button class="main-dropdown-btn">
+          Search and Filters
+          <img src="../img/chevron-down.svg" />
+        </button>
+        <div class="filters-main-menu">
+          <div class="search-box">
+            <input type="text" placeholder="Search artist" class="search-input" />
+            <button class="search-btn"><img src="../img/search.svg"></button>
+          </div>
 
-    <ul class="artists-list"></ul>
+          <div class="dropdown" data-type="sort">
+            <button class="dropdown-btn">
+              Sorting
+              <img src="../img/chevron-down.svg" />
+            </button>
 
+            <ul class="dropdown-list sort-list">
+              <li data-value="">Default</li>
+              <li data-value="asc">A → Z</li>
+              <li data-value="desc">Z → A</li>
+            </ul>
+          </div>
+
+          <div class="dropdown" data-type="genre">
+            <button class="dropdown-btn">
+              Genres
+              <img src="../img/chevron-down.svg" />
+            </button>
+
+            <ul class="dropdown-list genre-list">
+              <li data-value="">All Genres</li>
+            </ul>
+          </div>
+
+
+
+        </div>
+
+      </div>
+      <ul class="artists-list"></ul>
+
+    </div>
     <div class="loader is-hidden"></div>
 
     <button class="load-more-btn is-hidden" type="button">

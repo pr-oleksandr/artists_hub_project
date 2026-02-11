@@ -10,13 +10,108 @@ const artistsList = document.querySelector('.artists-list');
 const loadMoreBtn = document.querySelector('.load-more-btn');
 let currentPage = 1;
 const limit = 8;
+const filters = {
+  genre: null,
+  sortName: null,
+  name: null,
+};
+
+const resetBtn = document.querySelector('.reset-btn');
+
+const allDropdowns = document.querySelectorAll('.dropdown');
+
+const genreList = document.querySelector('.genre-list');
+const sortList = document.querySelector('.sort-list');
+
+const searchInput = document.querySelector('.search-input');
+const searchBtn = document.querySelector('.search-btn');
+const mainDropdownBtn = document.querySelector('.main-dropdown-btn');
+const filtersContainer = document.querySelector('.filters-container');
+
+async function fetchGenres() {
+  const { data } = await axios.get('/genres');
+  return data;
+}
+
+async function loadGenres() {
+  const genres = await fetchGenres();
+
+  const markup = genres
+    .map(g => `<li data-value="${g.genre}">${g.genre}</li>`)
+    .join('');
+
+  genreList.insertAdjacentHTML('beforeend', markup);
+}
+
+loadGenres();
+
+mainDropdownBtn.addEventListener('click', e => {
+  filtersContainer.classList.toggle('is-open');
+});
+
+allDropdowns.forEach(crntDropdown => {
+  const openButton = crntDropdown.querySelector('.dropdown-btn');
+
+  openButton.addEventListener('click', () => {
+    allDropdowns.forEach(othDropdown => {
+      if (othDropdown !== crntDropdown) othDropdown.classList.remove('open');
+    });
+
+    crntDropdown.classList.toggle('open');
+  });
+});
+
+genreList.addEventListener('click', e => {
+  filters.genre = e.target.dataset.value || null;
+  currentPage = 1;
+
+  closeDropdowns();
+  loadArtists();
+});
+sortList.addEventListener('click', e => {
+  const value = e.target.dataset.value;
+
+  filters.sortName = value;
+  currentPage = 1;
+
+  closeDropdowns();
+  loadArtists();
+});
+function closeDropdowns() {
+  allDropdowns.forEach(d => d.classList.remove('open'));
+}
+
+function applySearch() {
+  filters.name = searchInput.value.trim() || null;
+  currentPage = 1;
+  loadArtists();
+}
+// input
+searchInput.addEventListener('keydown', event => {
+  if (event.key === 'Enter') applySearch();
+});
+searchBtn.addEventListener('click', applySearch);
+
+// reset;
+resetBtn.addEventListener('click', () => {
+  filters.genre = null;
+  filters.sortName = null;
+  filters.name = null;
+
+  searchInput.value = '';
+  currentPage = 1;
+
+  closeDropdowns();
+  loadArtists();
+});
 
 loadArtists();
+// пагинация
 loadMoreBtn.addEventListener('click', () => {
   currentPage += 1;
   loadArtists();
 });
-
+// модалка
 artistsList.addEventListener('click', function (modalParameter) {
   const btn = modalParameter.target.closest('.learn-more-btn');
   if (!btn) return;
@@ -24,12 +119,15 @@ artistsList.addEventListener('click', function (modalParameter) {
   const artistId = btn.dataset.id;
   openArtistModal(artistId);
 });
-
+// fetchArtists
 async function fetchArtists(page) {
   const response = await axios.get('/artists', {
     params: {
       page: page,
       limit: limit,
+      genre: filters.genre || null,
+      sortName: filters.sortName || null,
+      name: filters.name || null,
     },
   });
   return response.data;
@@ -51,6 +149,8 @@ function formatBio(text, maxWords = 20) {
   }
   return text;
 }
+
+// renderArtist рендер карточек
 function renderArtists(artists, shouldAppend = false) {
   const markup = artists
     .map(
@@ -78,6 +178,9 @@ function renderArtists(artists, shouldAppend = false) {
     artistsList.innerHTML = markup;
   }
 }
+
+// завантаження карточек
+
 async function loadArtists() {
   try {
     showLoader(); // Показуємо лоадер перед початком завантаження даних
