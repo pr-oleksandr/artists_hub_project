@@ -191,14 +191,18 @@ async function loadArtists() {
     const data = await fetchArtists(currentPage);
 
     if (!data.artists || data.artists.length === 0) {
+      filtersContainer.classList.toggle('is-open');
+
       artistsList.innerHTML = ` 
       <li class="no-results">
-      <svg class="SVG-icon" width="24" height="16">
-                    <use href="${sprite}#icon-warning"></use>
+      <svg class="SVG-icon" width="40" height="40">
+                    <use href="${sprite}#error-icon"></use>
                   </svg>
         <span class="search-err-main">Silence on the stage...</span>
+        <div>
         <p class="search-err-info">Looks like no artists match your filters.</p>
         <p class="search-err-info">Try changing them or hit “Reset Filters” to bring back the beat.</p>
+        </div>
         <button class="err-reset-btn" type="button">Reset filters</button>
       </li> `;
       const errResetBtn = document.querySelector('.err-reset-btn');

@@ -54,7 +54,7 @@ export function createModal(modalAdress) {
     <span class="modal-close-btn-wraper">
             <button type="button" class="modal-close-btn" aria-label="Close"><svg class="SVG-icon"
               width="24" height="16">
-              <use href="${sprite}#icon-clouse"></use>
+              <use href="${sprite}#icon-close"></use>
             </svg></button>
             </span>
     </div>

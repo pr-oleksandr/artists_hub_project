@@ -8,7 +8,6 @@
   align-items: center;
   justify-content: center;
   z-index: 1001;
-  owerflow: hidden;
 }
 
 .feedback-modal-content {

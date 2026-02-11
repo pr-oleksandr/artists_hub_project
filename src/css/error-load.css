@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
+
+.no-results {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-radius: 16px;
+  padding: 16px;
+  width: 288px;
+  background-color: #23132b;
+}
+
+.search-err-main {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+}
+
+.search-err-info {
+  font-size: 20px;
+}
+
+.err-reset-btn {
+  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+  background-color: #764191;
+  color: var(--color-text);
+  border-radius: 12px;
+  padding: 10px 24px;
+
+  transition: opacity 0.3s ease;
+}
+
+.hero__btn:hover {
+  opacity: 0.6;
+}
+
+.hero__btn:active {
+  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05);
+}
+
+@media screen and (min-width: 768px) {
+  .no-results {
+    width: 704px;
+    padding: 32px;
+  }
+
+  .search-err-main {
+    font-size: 48px;
+  }
+
+  .err-reset-btn {
+    max-width: 148px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .no-results {
+    width: 976px;
+  }
+}
