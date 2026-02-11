@@ -46,7 +46,10 @@ export function createModal(modalAdress) {
   modal.innerHTML = `
     <div class="${modalAdress}-modal-content">
     <span class="modal-close-btn-wraper">
-            <button type="button" class="modal-close-btn" aria-label="Close"> <img src="/img/close-icon.svg" alt="Close menu" class="close-modal-btn"></button> 
+            <button type="button" class="modal-close-btn" aria-label="Close"> <svg class="SVG-icon"
+              width="24" height="16">
+              <use href="/icon-sprite.svg#icon-clouse"></use>
+            </svg></button>
             </span>
     </div>
   `;
@@ -106,7 +109,7 @@ function renderArtistContent(modal, artist, albums) {
             <span class="modal-close-btn-wraper">
             <button type="button" class="modal-close-btn" aria-label="Close"> <svg class="SVG-icon"
               width="24" height="16">
-              <use href="/img/icon-sprite.svg#icon-clouse"></use>
+              <use href="/icon-sprite.svg#icon-clouse"></use>
             </svg></button>
             </span>
             <h2 class="m-a-name">${artist.strArtist}</h2>
@@ -172,7 +175,7 @@ function renderArtistContent(modal, artist, albums) {
                               track.strTrackThumb || '#'
                             }"  target="_blank"><svg class="SVG-icon"
               width="24" height="16">
-              <use href="/img/icon-sprite.svg#icon-youtube"></use>
+              <use href="/icon-sprite.svg#icon-youtube"></use>
             </svg></a>
                         </div>`
                   )
