@@ -197,11 +197,31 @@
   display: flex;
   gap: 16px;
   flex-direction: column;
+
+  @media screen and (min-width:768px) {}
+
+  @media screen and (min-width:1440px) {
+    flex-direction: row;
+    align-items: flex-start;
+
+  }
 }
 
 
 .filters-container {
   width: 100%;
+  position: relative;
+
+  @media screen and (min-width:768px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @media screen and (min-width:1440px) {
+    width: 304px;
+    flex-shrink: 0;
+  }
 
   p {
     font-family: "Roboto", sans-serif;
@@ -209,6 +229,11 @@
     font-size: 18px;
     line-height: 150%;
     color: #fff;
+
+    @media screen and (min-width:1440px) {
+      display: inline;
+    }
+
   }
 }
 
@@ -216,6 +241,12 @@
 .reset-btn,
 .filters-main-menu {
   display: none;
+
+  @media screen and (min-width:768px) {}
+
+  @media screen and (min-width:1440px) {
+    display: flex;
+  }
 }
 
 
@@ -240,16 +271,42 @@
   font-size: 18px;
   line-height: 150%;
   color: #fff;
+
+  @media screen and (min-width:768px) {
+    margin-top: 0;
+    width: 233px;
+  }
+
+  @media screen and (min-width:1440px) {
+    display: none;
+  }
+
 }
 
 
 
 .filters-main-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
   flex-direction: column;
+  width: 100%;
   background: #1e1c1f;
   border-radius: 12px;
   gap: 12px;
   padding: 12px;
+
+  @media screen and (min-width:768px) {
+    width: 304px;
+  }
+
+  @media screen and (min-width:1440px) {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    background: none;
+  }
+
 }
 
 .search-box {
@@ -271,6 +328,10 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 150%;
+
+    &:focus {
+      outline: none;
+    }
   }
 }
 
@@ -337,10 +398,18 @@
   background: #1e1c1f;
   display: flex;
   flex-direction: column;
+
+  .dropdown-btn img {
+    transition: transform 100ms ease;
+  }
+
+  @media screen and (min-width:1440px) {
+    background: none;
+  }
 }
 
 .dropdown.open .dropdown-btn img {
-  transform: rotate(180deg);
+  transform: rotate(-180deg);
 }
 
 .dropdown-list::-webkit-scrollbar {
