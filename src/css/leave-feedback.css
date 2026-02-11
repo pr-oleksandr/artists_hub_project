@@ -18,11 +18,28 @@
   padding: 62px 16px;
 }
 
-.modal-close-btn-wrapper {
+.fb-modal-close-btn-wraper {
   position: absolute;
   top: 25px;
-  right: 300px;
-  background-color: #fff;
+  right: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.fb-modal-close-btn {
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.fb-modal-close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.fb-modal-close-btn:active {
+  background-color: rgba(255, 255, 255, 0.06);
 }
 
 .form-title {
@@ -144,7 +161,7 @@
   justify-content: left;
 }
 
-#rating > img {
+.rating > img {
   width: 30px;
   height: auto;
 }
