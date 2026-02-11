@@ -92,8 +92,7 @@ searchInput.addEventListener('keydown', event => {
 });
 searchBtn.addEventListener('click', applySearch);
 
-// reset;
-resetBtn.addEventListener('click', () => {
+function resetSearch() {
   filters.genre = null;
   filters.sortName = null;
   filters.name = null;
@@ -103,7 +102,9 @@ resetBtn.addEventListener('click', () => {
 
   closeDropdowns();
   loadArtists();
-});
+}
+// reset;
+resetBtn.addEventListener('click', resetSearch);
 
 loadArtists();
 // пагинация
@@ -189,6 +190,21 @@ async function loadArtists() {
 
     const data = await fetchArtists(currentPage);
 
+    if (!data.artists || data.artists.length === 0) {
+      artistsList.innerHTML = ` 
+      <li class="no-results">
+      <svg class="SVG-icon" width="24" height="16">
+                    <use href="${sprite}#icon-warning"></use>
+                  </svg>
+        <span class="search-err-main">Silence on the stage...</span>
+        <p class="search-err-info">Looks like no artists match your filters.</p>
+        <p class="search-err-info">Try changing them or hit “Reset Filters” to bring back the beat.</p>
+        <button class="err-reset-btn" type="button">Reset filters</button>
+      </li> `;
+      const errResetBtn = document.querySelector('.err-reset-btn');
+      errResetBtn.addEventListener('click', resetSearch);
+      return;
+    }
     renderArtists(data.artists, currentPage > 1);
 
     // Ховаємо лодер колидосягли останньої сторінки
