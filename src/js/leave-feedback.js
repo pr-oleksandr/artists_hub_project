@@ -47,7 +47,7 @@ function renderModalContent(modal) {
                   <textarea id="feedback-message" placeholder="Type your message..."></textarea>
                 </div>
                 <div class="rating" id="rating" data-rating="0"></div>
-                <button type="submit" id="submit-feedback" disabled>Submit</button>
+                <button class="form-submit-btn" type="submit" id="submit-feedback" disabled>Submit</button>
               </div>
               </form>
               `;

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import sprite from '../img/icon-sprite.svg';
 axios.defaults.baseURL = 'https://sound-wave.b.goit.study/api';
 const loader = document.querySelector('.loader');
 
@@ -48,7 +49,7 @@ export function createModal(modalAdress) {
     <span class="modal-close-btn-wraper">
             <button type="button" class="modal-close-btn" aria-label="Close"> <svg class="SVG-icon"
               width="24" height="16">
-              <use href="/icon-sprite.svg#icon-clouse"></use>
+              <use href="${sprite}#icon-clouse"></use>
             </svg></button>
             </span>
     </div>
@@ -109,7 +110,7 @@ function renderArtistContent(modal, artist, albums) {
             <span class="modal-close-btn-wraper">
             <button type="button" class="modal-close-btn" aria-label="Close"> <svg class="SVG-icon"
               width="24" height="16">
-              <use href="/icon-sprite.svg#icon-clouse"></use>
+              <use href="${sprite}#icon-clouse"></use>
             </svg></button>
             </span>
             <h2 class="m-a-name">${artist.strArtist}</h2>
@@ -175,7 +176,7 @@ function renderArtistContent(modal, artist, albums) {
                               track.strTrackThumb || '#'
                             }"  target="_blank"><svg class="SVG-icon"
               width="24" height="16">
-              <use href="/icon-sprite.svg#icon-youtube"></use>
+              <use href="${sprite}#icon-youtube"></use>
             </svg></a>
                         </div>`
                   )

@@ -24,17 +24,6 @@
   border: 0;
 }
 
-.visually-hidden:focus,
-.visually-hidden:active {
-  position: static;
-  width: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  clip: auto;
-  white-space: normal;
-}
-
 .swiper-slide {
   display: flex;
   justify-content: center;
@@ -139,9 +128,8 @@
   background: #fff;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (min-width: 1440px) {
   .swiper {
-    overflow: visible;
     padding-bottom: 32px;
   }
 
@@ -152,4 +140,9 @@
   .swiper-pagination {
     bottom: 0;
   }
+}
+
+.feedback-btn__container {
+  display: flex;
+  align-items: center;
 }
