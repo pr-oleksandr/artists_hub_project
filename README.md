@@ -27,7 +27,6 @@ discovering and exploring artists in a single, convenient place.
 - **IziToast**
 - **Swiper**
 - **Raty-js**
-- **///**
 
 ---
 

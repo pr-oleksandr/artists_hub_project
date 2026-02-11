@@ -3,6 +3,7 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import Raty from 'raty-js/src/raty.js';
 import { setupModalCloseHandlers, createModal } from './modal.js';
+import sprite from '../img/icon-sprite.svg';
 
 const leaveFeedbackBtn = document.querySelector('.leave-feedback-btn');
 axios.defaults.baseURL = 'https://sound-wave.b.goit.study/api';
@@ -32,7 +33,10 @@ function renderModalContent(modal) {
   content.innerHTML = `
           <form class="feedback-form">
           <span class="fb-modal-close-btn-wraper">
-            <button type="button" class="fb-modal-close-btn" aria-label="Close"> <img src="/img/close-icon.svg" alt="Close menu" class="close-modal-btn"></button> 
+            <button type="button" class="fb-modal-close-btn" aria-label="Close"> <svg class="SVG-icon"
+                          width="16" height="16">
+                          <use href="${sprite}#icon-close"></use>
+                        </svg></button> 
         </span>
               <h2 class="form-title">Submit Feedback</h2>
               
