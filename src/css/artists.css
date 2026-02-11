@@ -80,7 +80,7 @@
 }
 
 .artist-info {
-  padding-top: 24px;
+  margin-top: 24px;
 
   ul {
     display: flex;
