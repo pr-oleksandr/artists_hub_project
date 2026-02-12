@@ -15,8 +15,7 @@
 .artists {
   margin: 64px 0;
 
-  @media screen and (min-width: 768px) {
-  }
+  @media screen and (min-width: 768px) {}
 
   @media screen and (min-width: 1440px) {
     margin: 112px 0;
@@ -190,10 +189,10 @@
 .filters-wrapper {
   display: flex;
   gap: 16px;
+  min-height: 300px;
   flex-direction: column;
 
-  @media screen and (min-width: 768px) {
-  }
+  @media screen and (min-width: 768px) {}
 
   @media screen and (min-width: 1440px) {
     flex-direction: row;
@@ -233,8 +232,7 @@
 .filters-main-menu {
   display: none;
 
-  @media screen and (min-width: 768px) {
-  }
+  @media screen and (min-width: 768px) {}
 
   @media screen and (min-width: 1440px) {
     display: flex;
@@ -412,4 +410,11 @@
 .dropdown-list::-webkit-scrollbar-thumb {
   background: #764191;
   border-radius: 8px;
+}
+
+.artist-list-wrapper {
+  /* display: flex; */
+  /* flex-direction: column; */
+  align-items: center;
+  /* width: 100%; */
 }
