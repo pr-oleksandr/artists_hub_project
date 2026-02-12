@@ -68,7 +68,7 @@ genreList.addEventListener('click', e => {
 
   closeFiltersContainer();
   closeDropdowns();
-  loadArtists();
+  loadArtists(true);
 });
 sortList.addEventListener('click', e => {
   const value = e.target.dataset.value;
@@ -78,7 +78,7 @@ sortList.addEventListener('click', e => {
 
   closeFiltersContainer();
   closeDropdowns();
-  loadArtists();
+  loadArtists(true);
 });
 function closeDropdowns() {
   allDropdowns.forEach(crntDropdown => crntDropdown.classList.remove('open'));
@@ -92,7 +92,7 @@ function applySearch() {
   currentPage = 1;
 
   closeFiltersContainer();
-  loadArtists();
+  loadArtists(true);
 }
 // input
 searchInput.addEventListener('keydown', event => {
@@ -110,7 +110,8 @@ function resetSearch() {
 
   closeFiltersContainer();
   closeDropdowns();
-  loadArtists();
+  loadArtists(true);
+  container.classList.remove('is-hidden');
 }
 // reset;
 resetBtn.addEventListener('click', resetSearch);
@@ -173,8 +174,25 @@ function formatBio(text, maxWords = 20) {
 }
 
 // pagination
+let pagination = null;
+
 const container = document.getElementById('pagination');
-const pagination = new Pagination(container);
+function initPagination(totalItems) {
+  pagination = new Pagination(container, {
+    totalItems: totalItems,
+    itemsPerPage: limit,
+    visiblePages: 5,
+    page: currentPage,
+    centerAlign: true,
+    usageStatistics: false,
+  });
+
+  pagination.on('afterMove', event => {
+    currentPage = event.page;
+    loadArtists();
+  });
+}
+
 // renderArtist рендер карточек
 function renderArtists(artists) {
   const markup = artists
@@ -202,14 +220,14 @@ function renderArtists(artists) {
 
 // завантаження карточек
 
-async function loadArtists() {
+async function loadArtists(isFilterChange = false) {
   try {
     showLoader(); // Показуємо лоадер перед початком завантаження даних
 
     const data = await fetchArtists(currentPage);
     console.log('🚀 ~ loadArtists ~ data:', data);
 
-    handleArtistsResponse(data);
+    handleArtistsResponse(data, isFilterChange);
 
     // if (!data.artists || data.artists.length === 0) {
     //   filtersContainer.classList.toggle('is-open');
@@ -234,23 +252,34 @@ async function loadArtists() {
 
     // Ховаємо лодер колидосягли останньої сторінки
   } catch (error) {
+    console.log('🚀 ~ loadArtists ~ error:', error);
     iziToast.error({
       position: 'topRight',
       message:
         'Welcome to Ukraine! Blackout again? Or the server is resting...',
     });
   } finally {
-    // hideLoader(); // Ховаємо лоадер списку артистів
+    hideLoader(); // Ховаємо лоадер списку артистів
   }
 }
 
-function handleArtistsResponse(data) {
+function handleArtistsResponse(data, isFilterChange) {
   if (!data.artists || data.artists.length === 0) {
     renderNoResults();
+    container.classList.add('is-hidden');
     return;
   }
 
   renderArtists(data.artists);
+
+  if (!pagination) {
+    initPagination(data.totalArtists);
+  }
+
+  if (isFilterChange && pagination) {
+    pagination.reset(data.total);
+    // pagination.movePageTo(1);
+  }
 }
 
 function renderNoResults() {
