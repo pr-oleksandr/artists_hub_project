@@ -12,11 +12,7 @@
         </button>
         <div class="filters-main-menu">
           <div class="search-box">
-            <input
-              type="text"
-              placeholder="Search artist"
-              class="search-input"
-            />
+            <input type="text" placeholder="Search artist" class="search-input" />
             <button class="search-btn"><img src="/img/search.svg" /></button>
           </div>
 
@@ -45,15 +41,19 @@
           </div>
         </div>
       </div>
-      <ul class="artists-list"></ul>
+      <div class="artist-list-wrapper">
+        <ul class="artists-list"></ul>
+        <div class="loader is-hidden"></div>
+        <div id="pagination" class="tui-pagination"></div>
+      </div>
     </div>
-    <div class="loader is-hidden"></div>
 
-    <button class="load-more-btn is-hidden" type="button">
+
+    <!-- <button class="load-more-btn is-hidden" type="button">
       Load More
       <svg class="SVG-icon" width="24" height="16">
         <use href="/img/icon-sprite.svg#icon-down-arrow-alt"></use>
       </svg>
-    </button>
+    </button> -->
   </div>
 </section>
