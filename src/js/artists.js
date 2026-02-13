@@ -110,8 +110,8 @@ function resetSearch() {
 
   closeFiltersContainer();
   closeDropdowns();
-  loadArtists(true);
   container.classList.remove('is-hidden');
+  loadArtists(true);
 }
 // reset;
 resetBtn.addEventListener('click', resetSearch);
@@ -181,7 +181,7 @@ function initPagination(totalItems) {
   pagination = new Pagination(container, {
     totalItems: totalItems,
     itemsPerPage: limit,
-    visiblePages: 3,
+    visiblePages: 5,
     page: currentPage,
     centerAlign: true,
     usageStatistics: false,
@@ -191,12 +191,19 @@ function initPagination(totalItems) {
         '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
       moveButton:
         '<a href="#" class="tui-page-btn tui-{{type}} ">' +
-        '<span class="tui-ico-{{type}}">{{type}}</span>' +
+        '<span class="tui-page-btn  tui-{{type}}">' +
+        '<svg class="icon" width="24" height="24"><use href="' +
+        sprite +
+        '#icon-arrow-{{type}}"></use></svg>' +
+        '</span>' +
         '</a>',
       disabledMoveButton:
         '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-        '<span class="tui-ico-{{type}}">{{type}}</span>' +
+        '<svg class="icon" width="24" height="24"><use href="' +
+        sprite +
+        '#icon-arrow-{{type}}"></use></svg>' +
         '</span>',
+
       moreButton:
         '<a href="#" class="tui-page-btn tui-{{type}}-is-more">' +
         '<span class="tui-ico-more">...</span>' +
