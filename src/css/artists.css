@@ -418,3 +418,81 @@
   align-items: center;
   /* width: 100%; */
 }
+
+#pagination.tui-pagination {
+  margin-top: 20px;
+}
+
+#pagination .tui-page-btn {
+  background-color: transparent;
+  border: none;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  border-radius: 12px;
+  width: 45px;
+  color: #fff;
+  height: 45px;
+  align-content: center;
+  /* box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05), inset 0 -2px 1px 0 rgba(6, 3, 7, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.1); */
+
+}
+
+#pagination .tui-page-btn:not(:last-child) {
+  margin-right: 4px;
+  margin-left: 0;
+}
+
+#pagination .tui-is-selected {
+  background: #1e1c1f;
+
+
+}
+
+#pagination .tui-page-btn.tui-is-disabled {
+  background: #060307;
+  opacity: 0.2;
+  pointer-events: none;
+  cursor: default;
+}
+
+#pagination.tui-pagination .tui-ico-more {
+  color: #fff;
+}
+
+#pagination .tui-page-btn.tui-next-is-more,
+#pagination .tui-page-btn.tui-prev-is-more {
+  /* background: #060307; */
+  color: #fff;
+  width: 20px;
+}
+
+#pagination .tui-page-btn:hover {
+  opacity: 0.4;
+}
+
+#pagination .tui-page-btn:active {
+  background: #1e1c1f;
+}
+
+#pagination .tui-page-btn.tui-first,
+#pagination .tui-page-btn.tui-last {
+  display: none;
+}
+
+@media (max-width: 480px) {
+
+  #pagination .tui-page-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    border-radius: 12px;
+    width: 40px;
+    height: 40px;
+    align-content: center;
+    box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05), inset 0 -2px 1px 0 rgba(6, 3, 7, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+
+  }
+
+}
